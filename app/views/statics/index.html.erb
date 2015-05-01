@@ -1,1 +1,162 @@
-index.html.erb
+<div class="banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-2">
+        <div class="banner-logo">
+          <h1>FiCoach</h1>
+          <h2>幫你找到合適的運動教練</h2>
+          <h4>新運動入門  幫你打造基礎、培養興趣</h4>
+          <h4>運動愛好者  幫你提升運動表現、避免運動傷害</h4>
+
+        </div>
+      </div>
+<!--       <div class="col-xs-12 learnmore text-center">
+        <a class="btn btn-lg btn-primary" href="#" role="button">瞭解更多</a>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<div class="services">
+  <div class="container">
+    <div class="row">
+      <div class="page-header text-center">
+        <h2>服務特色</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 ">
+          <div class="detail">
+            <div class="detail-img col-xs-3">
+              <%= image_tag("detail01.png", :class => "img-responsive") %>
+            </div>
+            <div class="detail-content col-xs-9">
+              <h3>教練評價</h3>
+              <p>教練資歷、同學評分及推薦, 讓你更快找到適合自己的教練</p>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="detail">
+            <div class="detail-img col-xs-3">
+              <%= image_tag("detail02.png", :class => "img-responsive") %>
+            </div>
+            <div class="detail-content col-xs-9">
+              <h3>收費透明 自由選擇</h3>
+              <p>價格公開, 選擇符合自己預算的課程及堂數</p>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="detail">
+            <div class="detail-img col-xs-3">
+              <%= image_tag("detail03.png", :class => "img-responsive") %>
+            </div>
+            <div class="detail-content col-xs-9">
+              <h3>即時預約</h3>
+              <p>根據地理位置、日程表，打開APP想約就約</p>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+      </div>
+      <div class="col-md-6">
+        <%= image_tag("2iphone-ok.png", :class => "img-responsive") %>
+      </div>
+    </div>
+  </div>
+  <div class="mailchimp">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <%= render 'mailchimp' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="coaches">
+<!--   <div class="container">
+    <div class="row">
+      <div class="page-header text-center">
+        <h2>我們有這些教練</h2>
+      </div>
+    </div>
+  </div> -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <div class="title">
+          <%= image_tag("runner.png") %> <h3>體適能教練</h3>
+        </div>
+        <div class="avatar">
+          <%= image_tag("jenny_2.png") %>
+        </div>
+        <div class="content">
+          <p>
+            <span>jam</span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+          </p>
+          <p>證照: NSCA - CPT 美國個人肌力與體能訓練教練 TSCA 台灣肌力與體能訓練協會</p>
+          <p>課程: 登山體能與肌力鍛鍊 關節保養與活化 體重管理與體態調整</p>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <div class="title">
+          <%= image_tag("weighting.png", :class=>"img-resonsive") %> <h3>健身教練</h3>
+        </div>
+        <div class="avatar">
+          <%= image_tag("Alex.png") %>
+        </div>
+        <div class="content">
+          <p>
+            <span>jam</span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+          </p>
+          <p>證照: HFI 國際康體體適能教練證書 運動效能訓練證書(M.E.T) 運動能力診斷S級證照</p>
+          <p>課程: 健身、體重管理與規劃 運動傷害復健訓練</p>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <div class="title">
+          <%= image_tag("danceing.png") %> <h3>資深舞蹈教師</h3></div>
+        <div class="avatar">
+          <%= image_tag("Kore.png") %>
+        </div>
+        <div class="content">
+          <p>
+            <span>jam</span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+          </p>
+          <p>證照: STOTT PILATES MATWORK, LEVEL 1&2</p>
+          <p>課程: 皮拉提斯 有氧舞蹈 瑜珈</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="facebookpage">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+          <iframe allowtransparency="true" scrolling="no" src="//www.facebook.com/plugins/likebox.php?href=https://www.facebook.com/1561306717479051&amp;colorscheme=light&amp;height=270&amp;width=879&amp;show_faces=true&amp;stream=false&amp;show_border=false&amp;header=true" style="background-color:transparent;height:270px;" id="i8zkzpkniframe" class="s10iframe" data-reactid=".0.$SITE_ROOT.$SITE_STRUCTURE.$PAGES_CONTAINER.1.1.$SITE_PAGES.$mainPage.1.$ScrnWdthCntnr0-13t7.1.1.$ScrnWdthCntnr1-jku.1.1.$i8zkzpkn.0.0"></iframe>
+        </div>
+    </div>
+  </div>
+</div>

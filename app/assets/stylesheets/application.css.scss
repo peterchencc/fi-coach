@@ -1,2 +1,87 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body{
+  /*background-color: #ff0;*/
+}
+.banner{
+  background: image-url("banner01.png") no-repeat center center;
+  background-size:cover;
+  min-height: 400px;
+}
+.banner .banner-logo{
+  /*padding: 100px 50px 50px 50px;*/
+  min-height: 300px;
+  color: #fff;
+  padding-top: 50px;
+}
+.banner .banner-logo h1{
+  font-weight: bold;
+  color: #fff;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.banner .banner-logo h1{
+  font-size: 72px;
+  font-family: Spinnaker, sans-serif;
+  line-height: 72px;
+}
+.banner .banner-logo h2{
+  font-size: 32px;
+}
+.banner .learnmore{
+  margin: 30px 0 ;
+}
+.coaches{
+  padding:20px 0;
+}
+.coaches .title{
+  text-align: center;
+}
+.coaches .title img{
+  width: 50px;
+}
+.coaches .title h3{
+  display: inline;
+}
+.coaches .avatar{
+  text-align: center;
+  height: 270px;
+}
+.coaches .avatar img{
+  width: 250px;
+}
+.coaches .content{
+  margin: 10px 50px;
+}
+
+.services{
+  background-color: #D7D2C5;
+  padding :10px 0;
+}
+.services .page-header{
+  color: #3E2816;
+}
+.services .col-md-6{
+  padding:0 10px;
+}
+.services .detail{
+  margin: 50px 0;
+  color: #3E2816;
+  font-size: 17px;
+}
+
+.services .detail-img img{
+  width:90px;
+}
+.services .mailchimp{
+  padding: 15px 0;
+}
+
+.facebookpage{
+   text-align: center;
+   padding:30px 0;
+   background-color: #B1D6E1;
+ }
+.facebookpage iframe{
+  width:80%;
+}
