@@ -1,23 +1,23 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: demo_development
+  database: ficoach
   host: localhost
   username: root
-  password:
+  password: 123456
 
 test:
   adapter: mysql2
   encoding: utf8
-  database: demo_test
+  database: ficoach
   host: localhost
   username: root
-  password:
+  password: 123456
 
 production:
   adapter: mysql2
   encoding: utf8
-  database: demo_production
+  database: ficoach
   host: localhost
   username: root
-  password:
+  password: 123456

@@ -38,6 +38,8 @@ gem 'autoprefixer-rails'
 
 gem "mysql2"
 
+gem 'devise'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
