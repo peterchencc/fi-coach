@@ -5,7 +5,7 @@ body{
   /*background-color: #ff0;*/
 }
 .banner{
-  background: image-url("banner01.png") no-repeat center center;
+  background: image-url("landingpage/banner01.png") no-repeat center center;
   background-size:cover;
   min-height: 400px;
 }
@@ -15,24 +15,23 @@ body{
   color: #fff;
   padding-top: 50px;
 }
-.banner .banner-logo h1{
-  font-weight: bold;
-  color: #fff;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
+
 .banner .banner-logo h1{
   font-size: 72px;
   font-family: Spinnaker, sans-serif;
   line-height: 72px;
+  font-weight: bold;
 }
 .banner .banner-logo h2{
   font-size: 32px;
+  letter-spacing: 2px;
 }
 .banner .learnmore{
   margin: 30px 0 ;
 }
 .coaches{
   padding:20px 0;
+  color: #3E2816;
 }
 .coaches .title{
   text-align: center;
@@ -54,6 +53,12 @@ body{
   margin: 10px 50px;
 }
 
+.coaches .content h4{
+  display: inline;
+}
+.coaches .content img{
+  height:30px;
+}
 .services{
   background-color: #D7D2C5;
   padding :10px 0;
@@ -65,7 +70,7 @@ body{
   padding:0 10px;
 }
 .services .detail{
-  margin: 50px 0;
+  margin: 20px 0;
   color: #3E2816;
   font-size: 17px;
 }
