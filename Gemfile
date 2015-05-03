@@ -51,7 +51,7 @@ group :development, :test do
 
   gem "meta_request"
 
-  gem 'sqlite3'
+  # gem 'sqlite3'
 
 end
 
