@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   resources :coaches
 
+  scope :path => '/api/v1/', :module => "api_v1", :defaults => { :format => :json }, :as => 'v1' do
+    resources :coaches
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
