@@ -40,6 +40,8 @@ gem "mysql2"
 
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'faraday'
+
 
 group :development, :test do
 
