@@ -8,11 +8,35 @@ class User < ActiveRecord::Base
   before_save :ensure_authentication_token
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    user = where( fb_uid: auth.uid ).first
+
+    unless user
+      user = self.new
+      user.fb_uid = auth.uid
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      user.name = auth.info.name   # assuming the user model has a name
-      user.image = auth.info.image # assuming the user model has an image
+      user.name = auth.info.name
+      user.image = auth.info.image
+    end
+
+    if auth.credentials
+      user.fb_access_token = auth.credentials.token
+      user.fb_expires_at = Time.at(auth.credentials.expires_at)
+    end
+
+    user.save
+    user
+  end
+
+  # 從 Facebook 認證回來時，如果該 fb_uid 不存在
+  # self.from_omniauth 會試圖直接新增 User
+  # 如果新增失敗(例如有其他 validation 不過)，devise 就會導去註冊頁面
+  # 而 self.new_with_session 這個方法提供註冊頁面的預設值
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
     end
   end
 
