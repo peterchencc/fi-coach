@@ -8,11 +8,24 @@ Rails.application.routes.draw do
   get 'subscribe' => 'statics#subscribe'
   get 'thankyou' => 'statics#thankyou'
 
-  resources :coaches
+  resources :coaches do
+    resources :lessons
+    resources :comments
+  end
+
 
   scope :path => '/api/v1/', :module => "api_v1", :defaults => { :format => :json }, :as => 'v1' do
-    resources :coaches
+    post "login" => "auth#login"
+    post "logout" => "auth#logout"
+
+    resources :coaches, :only => [ :show, :index ] do
+      resources :lessons, :only => [ :show, :index ]
+      resources :comments, :only => [ :show, :index ]
+    end
   end
+
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
