@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  before_save :ensure_authentication_token
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -14,5 +16,25 @@ class User < ActiveRecord::Base
     end
   end
 
+
+
+  def generate_authentication_token
+    token = nil
+
+    loop do
+      token = Devise.friendly_token
+      break token unless User.where(authentication_token: token).first
+    end
+
+    self.authentication_token = token
+  end
+
+  protected
+
+  def ensure_authentication_token
+    if authentication_token.blank?
+      self.authentication_token = generate_authentication_token
+    end
+  end
 
 end
