@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150506111041) do
+ActiveRecord::Schema.define(version: 20150507065848) do
+
+  create_table "coaches", force: :cascade do |t|
+    t.string   "coach_name",     limit: 255
+    t.integer  "user_id",        limit: 4
+    t.text     "info",           limit: 65535
+    t.text     "description",    limit: 65535
+    t.text     "certificate",    limit: 65535
+    t.text     "teaching_frame", limit: 65535
+    t.string   "contact_email",  limit: 255
+    t.string   "contact_phone",  limit: 255
+    t.boolean  "admin_check",    limit: 1,     default: false, null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+  end
+
+  add_index "coaches", ["user_id"], name: "index_coaches_on_user_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false

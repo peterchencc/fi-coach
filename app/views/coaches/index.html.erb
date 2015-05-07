@@ -1,1 +1,24 @@
-index.html.erb
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+
+        <%= link_to "我要當教練！", new_coach_path, class: "btn btn-primary" %>
+
+    </div>
+  </div>
+</div>
+<div class="coachArea">
+  <div class="container">
+    <div class="row">
+      <div class="coach-list col-md-12">
+        <div class="coachCenter">
+          <% @coaches.each do |coach| %>
+            <div class="coachItem"><%= coach.coach_name %></div>
+          <% end  %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
