@@ -58,6 +58,7 @@ group :development, :test do
 
   gem "meta_request"
 
+  gem 'faker'
   # gem 'sqlite3'
 
 end

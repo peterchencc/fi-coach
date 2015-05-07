@@ -4,6 +4,9 @@ class CoachesController < ApplicationController
   def index
     @coaches = Coach.all
   end
+  def show
+
+  end
 
   def new
     @coach = Coach.new
@@ -17,8 +20,8 @@ class CoachesController < ApplicationController
 
   def create
 
-    @coach = Coach.new(coach_params)
-    @coach.user = current_user
+    @coach = current_user.create_coach(coach_params)
+
     if @coach.save
       flash[:notice] = "新增成功"
       redirect_to coaches_path

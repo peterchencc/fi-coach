@@ -14,7 +14,40 @@
       <div class="coach-list col-md-12">
         <div class="coachCenter">
           <% @coaches.each do |coach| %>
-            <div class="coachItem"><%= coach.coach_name %></div>
+            <div class="coachItem">
+              <div class="coachItemimg ">
+                <a href="<%= coach_path(coach) %>">
+                  <%= image_tag coach.user.image, class: "img-responsive" %>
+                  <strong><%= coach.coach_name %></strong>
+                </a>
+              </div>
+              <div class="coachItemContent">
+                <p><%= coach.description %></p>
+                <p><%= coach.info %></p>
+                <p><%= coach.certificate %></p>
+                <p><%= coach.teaching_frame %></p>
+                <p><%= coach.contact_email %></p>
+                <p><%= coach.contact_phone %></p>
+              </div>
+            </div>
+            <div class="coachLesson">
+              <div class="lesson">
+                <p>個人化健康管理</p>
+                <p>不限年齡不限性別（特別適合23以上之上班族）</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus est accusantium minima suscipit provident necessitatibus amet voluptas omnis obcaecati, quo id explicabo. Neque rem, vitae unde voluptates officia itaque, repudiandae, enim beatae temporibus blanditiis atque reiciendis, sed maxime dolor sapiente!</p>
+                <p>1500-2000/hr, 視授課人數</p>
+                <p>1~6</p>
+              </div>
+            </div>
+            <div class="coachComment">
+              <div class="lesson">
+                <p>個人化健康管理</p>
+                <p>不限年齡不限性別（特別適合23以上之上班族）</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus est accusantium minima suscipit provident necessitatibus amet voluptas omnis obcaecati, quo id explicabo. Neque rem, vitae unde voluptates officia itaque, repudiandae, enim beatae temporibus blanditiis atque reiciendis, sed maxime dolor sapiente!</p>
+                <p>1500-2000/hr, 視授課人數</p>
+                <p>1~6</p>
+              </div>
+            </div>
           <% end  %>
 
         </div>
