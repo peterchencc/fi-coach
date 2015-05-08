@@ -5,4 +5,7 @@ class Coach < ActiveRecord::Base
   validates_uniqueness_of :user_id
   belongs_to :user
 
+  has_many :coach_skillships
+  has_many :skills, :through => :coach_skillships
+
 end

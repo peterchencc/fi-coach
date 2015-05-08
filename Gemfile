@@ -44,6 +44,7 @@ gem 'faraday'
 
 
 gem "paperclip", "~> 4.2"
+gem "select2-rails"
 
 group :development, :test do
 

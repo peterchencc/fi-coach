@@ -4,8 +4,14 @@ namespace :dev do
 
     User.delete_all
     Coach.delete_all
+    Skill.delete_all
 
     users = []
+    skills = ["Swim", "Fit", "Golf", "Running", "Weighting"]
+    skills.each do |s|
+      puts s
+      Skill.create( :name => s )
+    end
     emails = ["example@gmail.com", "ihower@gmail.com", "frozenfung@gmail.com", "vneverz@gmail.com", "tim.du@alphacamp.co"]
     emails.each do |email|
       puts email
@@ -19,7 +25,6 @@ namespace :dev do
           :certificate => "職業證照",
           :teaching_frame => "「樂在學習，關心他人」。希望學生可以在學習中快樂的學習知識，懂得關心他人，對別人好。最終目的是懂得關心他人，學好「做人處世」。"
         )
-
     end
   end
 

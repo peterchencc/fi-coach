@@ -1,3 +1,4 @@
+<div class="col-md-10 col-md-offset-1">
 hi, <%= current_user.display_name %>
 <% if @coach.errors.any? %>
   <ul>
@@ -10,45 +11,51 @@ hi, <%= current_user.display_name %>
 <%= form_for @coach do |f| %>
 
   <div class="form-group">
-    <%= f.label "教練照片" %>
+    <%= f.label :photo, "教練照片" %>
     <%= f.file_field :photo, :id => "pictureInput" %>
-    <div id="target" class="col-md-2">
+    <div id="target" class="col-xs-9 col-sm-6 col-md-3">
       <%= image_tag(@coach.photo, :class => "img-responsive img-thumbnail" ) if @coach.photo? %>
     </div>
   </div>
   <div class="clearfix"></div>
   <div class="form-group">
-    <%= f.label :coach_name %>
+    <%= f.label :coach_name, "教練姓名" %>
     <%= f.text_field :coach_name, :class => "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :info %>
+    <%= f.label :skill_ids, "專長" %>
+    <%= f.select :skill_ids, Skill.all.map{ |g| [g.name, g.id] }, {}, :multiple => true, :id => "multiple-group-select", :class=> "form-control" %>
+
+  </div>
+
+  <div class="form-group">
+    <%= f.label :info, "經歷" %>
     <%= f.text_field :info, :class => "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :description %>
-    <%= f.text_field :description, :rows => 15, :class => "form-control" %>
+    <%= f.label :description, "簡介" %>
+    <%= f.text_area :description, :rows => 3, :class => "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :certificate %>
+    <%= f.label :certificate, "證照" %>
     <%= f.text_field :certificate, :rows => 15, :class => "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :teaching_frame %>
+    <%= f.label :teaching_frame, "教學理念" %>
     <%= f.text_field :teaching_frame, :rows => 15, :class => "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :contact_email %>
+    <%= f.label :contact_email, "E-mail" %>
     <%= f.text_field :contact_email, :class => "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :contact_phone %>
+    <%= f.label :contact_phone, "聯絡電話" %>
     <%= f.text_field :contact_phone, :class => "form-control" %>
   </div>
 
@@ -60,6 +67,15 @@ hi, <%= current_user.display_name %>
 
 
 <script>
+
+  $("#multiple-group-select").select2();
+
+  $("#skill-list").select2({
+    tags: <%= raw(Skill.pluck(:name).to_json) %>,
+    tokenSeparators: [',', ' ']
+  });
+
+
 $(function() {
   $('#pictureInput').on('change', function(event) {
     var files = event.target.files;
@@ -78,3 +94,4 @@ $(function() {
   });
 });
 </script>
+</div>
