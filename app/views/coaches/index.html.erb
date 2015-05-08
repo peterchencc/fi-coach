@@ -17,7 +17,7 @@
             <div class="coachItem">
               <div class="coachItemimg ">
                 <a href="<%= coach_path(coach) %>">
-                  <%= image_tag coach.user.image, class: "img-responsive" %>
+                  <%= image_tag coach.photo, class: "img-responsive img-thumbnail", size: "150" %>
                   <strong><%= coach.coach_name %></strong>
                 </a>
               </div>
@@ -40,12 +40,19 @@
               </div>
             </div>
             <div class="coachComment">
-              <div class="lesson">
-                <p>個人化健康管理</p>
-                <p>不限年齡不限性別（特別適合23以上之上班族）</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus est accusantium minima suscipit provident necessitatibus amet voluptas omnis obcaecati, quo id explicabo. Neque rem, vitae unde voluptates officia itaque, repudiandae, enim beatae temporibus blanditiis atque reiciendis, sed maxime dolor sapiente!</p>
-                <p>1500-2000/hr, 視授課人數</p>
-                <p>1~6</p>
+              <div class="media" id="comment-id">
+                <div class="media-left">
+                  <a href="#">
+                    <%= user_avatar(current_user) %>
+                  </a>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading"></h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus est accusantium minima suscipit pr</p>
+                  <p class="text-right">
+
+                  </p>
+                </div>
               </div>
             </div>
           <% end  %>

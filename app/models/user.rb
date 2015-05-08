@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
-
   before_save :ensure_authentication_token
 
   has_one :coach
@@ -13,6 +12,18 @@ class User < ActiveRecord::Base
     self.coach.nil?
   end
 
+  def gavatar_url
+    md5 = Digest::MD5.hexdigest(self.email.downcase)
+    "https://www.gravatar.com/avatar/#{md5}"
+  end
+
+  def display_name
+    self.name || self.email.split("@").first
+  end
+
+  def display_avatar
+    self.image || self.gavatar_url
+  end
 
   def self.get_facebook_user_data(access_token)
     conn = Faraday.new(:url => 'https://graph.facebook.com/me')

@@ -2,10 +2,10 @@ class CoachesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @coaches = Coach.all
+    @coaches = Coach.all.order("created_at DESC")
   end
   def show
-
+    @coach = Coach.find( params[:id] )
   end
 
   def new
@@ -35,6 +35,6 @@ class CoachesController < ApplicationController
   private
 
   def coach_params
-    params.require(:coach).permit( :coach_name, :user_id, :info, :description, :certificate, :teaching_frame, :contact_email, :contact_phone )
+    params.require(:coach).permit( :coach_name, :user_id, :info, :description, :certificate, :teaching_frame, :contact_email, :contact_phone, :photo )
   end
 end

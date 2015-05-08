@@ -11,20 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507065848) do
+ActiveRecord::Schema.define(version: 20150508041111) do
 
   create_table "coaches", force: :cascade do |t|
-    t.string   "coach_name",     limit: 255
-    t.integer  "user_id",        limit: 4
-    t.text     "info",           limit: 65535
-    t.text     "description",    limit: 65535
-    t.text     "certificate",    limit: 65535
-    t.text     "teaching_frame", limit: 65535
-    t.string   "contact_email",  limit: 255
-    t.string   "contact_phone",  limit: 255
-    t.boolean  "admin_check",    limit: 1,     default: false, null: false
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.string   "coach_name",         limit: 255
+    t.integer  "user_id",            limit: 4
+    t.text     "info",               limit: 65535
+    t.text     "description",        limit: 65535
+    t.text     "certificate",        limit: 65535
+    t.text     "teaching_frame",     limit: 65535
+    t.string   "contact_email",      limit: 255
+    t.string   "contact_phone",      limit: 255
+    t.boolean  "admin_check",        limit: 1,     default: false, null: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+    t.string   "photo_file_name",    limit: 255
+    t.string   "photo_content_type", limit: 255
+    t.integer  "photo_file_size",    limit: 4
+    t.datetime "photo_updated_at"
   end
 
   add_index "coaches", ["user_id"], name: "index_coaches_on_user_id", unique: true, using: :btree

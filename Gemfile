@@ -43,6 +43,8 @@ gem 'omniauth-facebook'
 gem 'faraday'
 
 
+gem "paperclip", "~> 4.2"
+
 group :development, :test do
 
   gem 'rspec-rails'
