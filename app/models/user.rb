@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   has_one :coach
 
-  def not_coach
+  def is_coach?
     self.coach.nil?
   end
 

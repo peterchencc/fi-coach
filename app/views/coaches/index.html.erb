@@ -3,7 +3,14 @@
   <div class="row">
     <div class="col-md-12 text-center">
 
-        <%= link_to "我要當教練！", new_coach_path, class: "btn btn-primary" %>
+
+        <% if current_user %>
+          <% unless current_user.is_coach? %>
+            <%= link_to "編輯教練資料", edit_coach_path(current_user.coach), class: "btn btn-primary" %>
+          <% else %>
+            <%= link_to "我要當教練！", new_coach_path, class: "btn btn-primary" %>
+          <% end %>
+        <% end %>
 
     </div>
   </div>
@@ -43,7 +50,7 @@
               <div class="media" id="comment-id">
                 <div class="media-left">
                   <a href="#">
-                    <%= user_avatar(current_user) %>
+                    <%#= user_avatar(current_user) %>
                   </a>
                 </div>
                 <div class="media-body">
