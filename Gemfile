@@ -46,6 +46,8 @@ gem 'faraday'
 gem "paperclip", "~> 4.2"
 gem "select2-rails"
 
+gem 'nested_form_fields'
+
 group :development, :test do
 
   gem 'rspec-rails'

@@ -14,6 +14,8 @@ class Coach < ActiveRecord::Base
   has_many :coach_sportships
   has_many :sports, :through => :coach_sportships
 
+  has_many :experiences
+  accepts_nested_attributes_for :experiences, allow_destroy: true
 
   def skill_list
     self.skills.map{ |t| t.name }.join(",")
