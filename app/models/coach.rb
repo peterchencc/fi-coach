@@ -8,6 +8,9 @@ class Coach < ActiveRecord::Base
   has_many :coach_skillships
   has_many :skills, :through => :coach_skillships
 
+  has_many :coach_cityships
+  has_many :cities, :through => :coach_cityships
+
 
   def skill_list
     self.skills.map{ |t| t.name }.join(",")

@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150509154937) do
+ActiveRecord::Schema.define(version: 20150509180438) do
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name",       limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "coach_cityships", force: :cascade do |t|
+    t.integer  "coach_id",   limit: 4
+    t.integer  "city_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "coach_cityships", ["city_id"], name: "index_coach_cityships_on_city_id", using: :btree
+  add_index "coach_cityships", ["coach_id"], name: "index_coach_cityships_on_coach_id", using: :btree
 
   create_table "coach_skillships", force: :cascade do |t|
     t.integer  "coach_id",   limit: 4

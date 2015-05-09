@@ -63,6 +63,13 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :city_ids, "授課地區 (可多選)", :class => "col-sm-2"  %>
+    <div class="col-sm-8">
+      <%= f.select :city_ids, City.all.map{ |g| [g.name, g.id] }, {}, :multiple => true, :id => "multiple-city-select", :class=> "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
     <%= f.label :contact_email, "E-mail", :class => "col-sm-2" %>
     <div class="col-sm-5">
       <%= f.text_field :contact_email, :class => "form-control" %>
@@ -86,6 +93,7 @@
 <script>
 
   $("#multiple-sports-select").select2();
+  $("#multiple-city-select").select2();
 
   $("#skill-list").select2({
     tags: <%= raw(Skill.pluck(:name).to_json) %>,
