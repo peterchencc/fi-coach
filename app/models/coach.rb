@@ -16,6 +16,8 @@ class Coach < ActiveRecord::Base
 
   has_many :experiences
   accepts_nested_attributes_for :experiences, allow_destroy: true
+  has_many :certificates
+  accepts_nested_attributes_for :certificates, allow_destroy: true
 
   def skill_list
     self.skills.map{ |t| t.name }.join(",")
