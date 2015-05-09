@@ -1,5 +1,4 @@
 <div class="col-md-10 col-md-offset-1">
-hi, <%= current_user.display_name %>
 <% if @coach.errors.any? %>
   <ul>
     <% @coach.errors.full_messages.each do |msg| %>
@@ -8,55 +7,73 @@ hi, <%= current_user.display_name %>
   </ul>
 <% end %>
 
-<%= form_for @coach do |f| %>
+<%= form_for @coach, :html => {:class => "form-horizontal"} do |f| %>
 
   <div class="form-group">
-    <%= f.label :photo, "教練照片" %>
-    <%= f.file_field :photo, :id => "pictureInput" %>
-    <div id="target" class="col-xs-9 col-sm-6 col-md-3">
-      <%= image_tag(@coach.photo, :class => "img-responsive img-thumbnail" ) if @coach.photo? %>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+      <div id="target" class="col-xs-7 col-sm-6 col-md-3">
+        <% if @coach.photo? %>
+        <%= image_tag(@coach.photo, :class => "img-responsive img-thumbnail" ) %>
+        <% else %>
+        <%= image_tag("coach/default.png", :class => "img-responsive img-thumbnail" )  %>
+        <% end %>
+      </div>
+      <div class="clearfix"></div>
+      <p></p><%= f.file_field :photo, :id => "pictureInput" %>
     </div>
   </div>
-  <div class="clearfix"></div>
+  <!-- <div class="clearfix"></div> -->
   <div class="form-group">
-    <%= f.label :coach_name, "教練姓名" %>
-    <%= f.text_field :coach_name, :class => "form-control" %>
+    <%= f.label :coach_name, "教練姓名", :class => "col-sm-2" %>
+    <div class="col-sm-5">
+      <%= f.text_field :coach_name, :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :sex, "性別", :class => "col-sm-2" %>
+    <div class="col-sm-2">
+      <%= f.select :sex, coach_sex_options, {}, {:class => "form-control"} %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%#= f.label :sports_ids, "運動項目 ex:健身、跑步、瑜珈、網球" %>
+    <%#= f.select :sports_ids, Sport.all.map{ |g| [g.name, g.id] }, {}, :multiple => true, :id => "multiple-sports-select", :class=> "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :skill_ids, "專長" %>
-    <%= f.select :skill_ids, Skill.all.map{ |g| [g.name, g.id] }, {}, :multiple => true, :id => "multiple-group-select", :class=> "form-control" %>
-
+    <%= f.label :skill_list, "專長", :class => "col-sm-2" %>
+    <div class="col-sm-10">
+      <%= f.text_field :skill_list, :placeholder => "tag1, tag2", :class=> "form-control", :id => "skill-list" %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :info, "經歷" %>
-    <%= f.text_field :info, :class => "form-control" %>
+    <%= f.label :description, "簡介", :class => "col-sm-2" %>
+    <div class="col-sm-10">
+      <%= f.text_area :description, :rows => 3, :class => "form-control" %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :description, "簡介" %>
-    <%= f.text_area :description, :rows => 3, :class => "form-control" %>
+    <%= f.label :teaching_frame, "教學理念", :class => "col-sm-2" %>
+    <div class="col-sm-10">
+      <%= f.text_area :teaching_frame, :rows => 3, :class => "form-control" %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :certificate, "證照" %>
-    <%= f.text_field :certificate, :rows => 15, :class => "form-control" %>
+    <%= f.label :contact_email, "E-mail", :class => "col-sm-2" %>
+    <div class="col-sm-5">
+      <%= f.text_field :contact_email, :class => "form-control" %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :teaching_frame, "教學理念" %>
-    <%= f.text_field :teaching_frame, :rows => 15, :class => "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :contact_email, "E-mail" %>
-    <%= f.text_field :contact_email, :class => "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :contact_phone, "聯絡電話" %>
-    <%= f.text_field :contact_phone, :class => "form-control" %>
+    <%= f.label :contact_phone, "聯絡電話", :class => "col-sm-2" %>
+    <div class="col-sm-5">
+      <%= f.text_field :contact_phone, :class => "form-control" %>
+    </div>
   </div>
 
   <div class="form-group">
@@ -68,7 +85,7 @@ hi, <%= current_user.display_name %>
 
 <script>
 
-  $("#multiple-group-select").select2();
+  $("#multiple-sports-select").select2();
 
   $("#skill-list").select2({
     tags: <%= raw(Skill.pluck(:name).to_json) %>,

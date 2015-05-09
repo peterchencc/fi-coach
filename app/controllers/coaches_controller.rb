@@ -60,6 +60,6 @@ class CoachesController < ApplicationController
   end
 
   def coach_params
-    params.require(:coach).permit( :coach_name, :user_id, :description, :certificate, :teaching_frame, :contact_email, :contact_phone, :photo, :info, :skill_ids => [])
+    params.require(:coach).permit( :coach_name, :user_id, :status, :sex, :description, :teaching_frame, :contact_email, :contact_phone, :photo, :skill_list)
   end
 end

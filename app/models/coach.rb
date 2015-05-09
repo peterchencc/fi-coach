@@ -8,4 +8,18 @@ class Coach < ActiveRecord::Base
   has_many :coach_skillships
   has_many :skills, :through => :coach_skillships
 
+
+  def skill_list
+    self.skills.map{ |t| t.name }.join(",")
+  end
+
+  def skill_list=(value)
+    skills = value.split(",").map { |skill_name|
+      skill_name = skill_name.strip
+      Skill.find_by_name(skill_name) || Skill.create( :name => skill_name)
+    }
+
+    self.skill_ids = skills.map{ |x| x.id }
+  end
+
 end
