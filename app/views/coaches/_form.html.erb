@@ -37,8 +37,10 @@
     </div>
   </div>
   <div class="form-group">
-    <%#= f.label :sports_ids, "運動項目 ex:健身、跑步、瑜珈、網球" %>
-    <%#= f.select :sports_ids, Sport.all.map{ |g| [g.name, g.id] }, {}, :multiple => true, :id => "multiple-sports-select", :class=> "form-control" %>
+    <%= f.label :sport_ids, "運動項目 (可多選)", :class => "col-sm-2"  %>
+    <div class="col-sm-10">
+      <%= f.select :sport_ids, Sport.all.map{ |g| [g.name, g.id] }, {}, :multiple => true, :id => "multiple-sport-select", :class=> "form-control" %>
+    </div>
   </div>
 
   <div class="form-group">
@@ -92,7 +94,7 @@
 
 <script>
 
-  $("#multiple-sports-select").select2();
+  $("#multiple-sport-select").select2();
   $("#multiple-city-select").select2();
 
   $("#skill-list").select2({

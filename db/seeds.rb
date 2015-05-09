@@ -13,3 +13,6 @@ cities = City.create([{ name: '臺北' }, { name: '新北' },
   { name: '臺南' }, { name: '高雄' }, { name: '屏東' },
   { name: '宜蘭' }, { name: '花蓮' }, { name: '臺東' },
   { name: '澎湖' }, { name: '金門' }])
+
+
+sports = Sport.create([{ name: '健身' }, { name: '跑步' }, { name: '瑜珈' }, { name: '網球' }])

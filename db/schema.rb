@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150509180438) do
+ActiveRecord::Schema.define(version: 20150509182305) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(version: 20150509180438) do
   add_index "coach_skillships", ["coach_id"], name: "index_coach_skillships_on_coach_id", using: :btree
   add_index "coach_skillships", ["skill_id"], name: "index_coach_skillships_on_skill_id", using: :btree
 
+  create_table "coach_sportships", force: :cascade do |t|
+    t.integer  "coach_id",   limit: 4
+    t.integer  "sport_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "coach_sportships", ["coach_id"], name: "index_coach_sportships_on_coach_id", using: :btree
+  add_index "coach_sportships", ["sport_id"], name: "index_coach_sportships_on_sport_id", using: :btree
+
   create_table "coaches", force: :cascade do |t|
     t.string   "coach_name",         limit: 255
     t.integer  "user_id",            limit: 4
@@ -60,6 +70,12 @@ ActiveRecord::Schema.define(version: 20150509180438) do
   add_index "coaches", ["user_id"], name: "index_coaches_on_user_id", unique: true, using: :btree
 
   create_table "skills", force: :cascade do |t|
+    t.string   "name",       limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "sports", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
