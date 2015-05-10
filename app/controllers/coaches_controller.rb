@@ -52,6 +52,19 @@ class CoachesController < ApplicationController
     redirect_to coaches_path
   end
 
+  def status
+    @coach = Coach.find( params[:id] )
+    if @coach.status == 'draft'
+      @coach.status = 'public'
+      @coach.save!
+    else
+      @coach.status = 'draft'
+      @coach.save!
+    end
+
+    render :action => "status"
+  end
+
 
   private
 

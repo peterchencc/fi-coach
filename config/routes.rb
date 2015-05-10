@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   end
 
   resources :coaches, :only => [ :index, :show, :create, :update ] do
+    member do
+      post 'status'
+    end
     resources :lessons, :only => :index
     resources :comments
   end
