@@ -1,6 +1,12 @@
 <div class="editCoach">
   <div class="container">
     <div class="row">
+      <ul class="nav nav-tabs">
+        <li role="presentation"><%= link_to '個人資料', users_path %></li>
+        <li role="presentation"><%= link_to '修改密碼', edit_user_registration_path %></li>
+        <li role="presentation" class="active"><%= link_to '編輯教練資料', edit_users_coaches_path %></li>
+        <li role="presentation"><%= link_to '編輯課程資訊', users_coaches_lessons_path %></li>
+      </ul>
       <%= render 'form' %>
     </div>
   </div>

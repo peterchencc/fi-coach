@@ -1,7 +1,7 @@
 class CoachesController < ApplicationController
 
   before_action :authenticate_user!, only: [ :new, :create, :edit, :update ]
-  before_action :set_coach, :only => [ :show, :edit, :update, :destroy ]
+  before_action :set_coach, :only => [ :show, :update, :destroy ]
 
   def index
     @coaches = Coach.all.order("created_at DESC")
@@ -16,31 +16,31 @@ class CoachesController < ApplicationController
 
     else
       flash[:alert] = "一個帳號只能一個教練喔"
-      redirect_to coaches_path
+      redirect_to users_path
     end
   end
 
   def create
     @coach = current_user.create_coach(coach_params)
     if @coach.save
-      flash[:notice] = "新增成功"
-      redirect_to coaches_path
+      flash[:notice] = "在這邊可以編輯教練資料。"
+      redirect_to edit_users_coaches_path
     else
       flash[:alert] = "一個帳號只能一個教練喔"
-      render :new
+      redirect_to users_path
     end
   end
 
   def edit
-    unless current_user.id == @coach.user_id
-      redirect_to coaches_path
-    end
+    redirect_to users_path if current_user.is_coach?
+    @coach = current_user.coach
   end
 
   def update
+    redirect_to users_path if current_user.is_coach?
     if @coach.update( coach_params )
       flash[:notice] = "編輯成功"
-      redirect_to coaches_path
+      redirect_to edit_users_coaches_path
     else
       render :action => :edit
     end
