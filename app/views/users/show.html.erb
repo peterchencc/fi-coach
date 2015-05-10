@@ -5,8 +5,8 @@
         <li role="presentation" class="active"><%= link_to '個人資料', users_path %></li>
         <li role="presentation"><%= link_to '修改密碼', edit_user_registration_path %></li>
         <% unless current_user.is_coach? %>
-        <li role="presentation"><%= link_to '編輯教練資料', edit_users_coaches_path %></li>
-        <li role="presentation"><%= link_to '編輯課程資訊', users_coaches_lessons_path %></li>
+        <li role="presentation"><%= link_to '編輯教練資料', edit_users_coach_path %></li>
+        <li role="presentation"><%= link_to '編輯課程資訊', users_coach_lessons_path %></li>
         <% end %>
       </ul>
       <p></p>
@@ -14,7 +14,7 @@
         <div class="jumbotron">
           <% unless current_user.is_coach? %>
             <!-- <p>如果您編輯完教練資料，即刻送出審核通知，我們將盡快審核您的資料。</p> -->
-            <!-- <p class="text-center"><%= link_to "送出審核通知", edit_users_coaches_path, class: "btn btn-warning" %></p> -->
+            <!-- <p class="text-center"><%= link_to "送出審核通知", edit_users_coach_path, class: "btn btn-warning" %></p> -->
             <h1>Hi , <%= current_user.display_name %>  教練</h1>
             <p>您可以在這邊決定是否公開您的教練資料。</p>
             <div class="text-center" id="coach-status">
@@ -23,7 +23,7 @@
           <% else %>
             <h1>Hi , <%= current_user.display_name %></h1>
               <p>如果您是教練請按下方按鈕，前往填寫教練資料。</p>
-              <p class="text-center"><%= link_to "註冊填寫教練資料", new_users_coaches_path, class: "btn btn-primary" %></p>
+              <p class="text-center"><%= link_to "註冊填寫教練資料", new_users_coach_path, class: "btn btn-primary" %></p>
           <% end %>
         </div>
       </div>

@@ -7,7 +7,7 @@
       </ul>
       <p></p>
       <div class="col-md-10 col-md-offset-1">
-      <%= form_for @coach, :html => {:class => 'form-horizontal'} do |f| %>
+      <%= form_for @coach, :url => users_coach_path, :html => {:class => 'form-horizontal'} do |f| %>
         <div class="form-group">
           <%= f.label :coach_name, "教練姓名", :class => "col-sm-2" %>
           <div class="col-sm-3">

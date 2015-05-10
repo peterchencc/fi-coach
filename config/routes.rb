@@ -10,12 +10,12 @@ Rails.application.routes.draw do
 
 
   resource :users, :only => [ :show ] do
-    resource :coaches do
+    resource :coach do
       resources :lessons
     end
   end
 
-  resources :coaches, :only => [ :index, :show, :create, :update ] do
+  resources :coaches, :only => [ :index, :show, :update ] do
     member do
       post 'status'
     end
