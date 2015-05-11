@@ -6,7 +6,7 @@
         <li role="presentation"><%= link_to '修改密碼', edit_user_registration_path %></li>
         <% unless current_user.is_coach? %>
         <li role="presentation"><%= link_to '編輯教練資料', edit_users_coach_path %></li>
-        <li role="presentation"><%= link_to '編輯課程資訊', users_coach_lessons_path %></li>
+        <li role="presentation"><%= link_to '編輯課程', users_coach_lessons_path %></li>
         <% end %>
       </ul>
       <p></p>
