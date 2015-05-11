@@ -8,17 +8,17 @@ Rails.application.routes.draw do
   get 'subscribe' => 'statics#subscribe'
   get 'thankyou' => 'statics#thankyou'
 
-
-  resource :users, :only => [ :show ] do
+  resource :users, :only => :show
+  namespace :users do
     resource :coach do
+      member do
+        post 'status'
+      end
       resources :lessons
     end
   end
 
-  resources :coaches, :only => [ :index, :show, :update ] do
-    member do
-      post 'status'
-    end
+  resources :coaches, :only => [ :index, :show ] do
     resources :lessons, :only => :index
     resources :comments
   end

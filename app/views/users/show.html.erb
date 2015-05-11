@@ -18,7 +18,7 @@
             <h1>Hi , <%= current_user.display_name %>  教練</h1>
             <p>您可以在這邊決定是否公開您的教練資料。</p>
             <div class="text-center" id="coach-status">
-              <%= render :partial => "coaches/status", :locals => { :coach => current_user.coach } %>
+              <%= render :partial => "users/coaches/status", :locals => { :coach => current_user.coach } %>
             </div>
           <% else %>
             <h1>Hi , <%= current_user.display_name %></h1>

@@ -1,0 +1,7 @@
+<% if coach.status == 'draft' %>
+  <p>教練資料狀態：預覽</p>
+  <%= link_to "預覽", status_users_coach_path, :method => :post, :remote => true, :class => "btn btn-primary" %>
+<% else %>
+  <p>教練資料狀態：公開中</p>
+  <%= link_to "公開中", status_users_coach_path, :method => :post, :remote => true, :class => "btn btn-danger" %>
+<% end %>
