@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150509193834) do
+ActiveRecord::Schema.define(version: 20150511124650) do
 
   create_table "certificates", force: :cascade do |t|
     t.integer  "coach_id",   limit: 4,   null: false
@@ -86,6 +86,25 @@ ActiveRecord::Schema.define(version: 20150509193834) do
   end
 
   add_index "experiences", ["coach_id"], name: "index_experiences_on_coach_id", using: :btree
+
+  create_table "lessons", force: :cascade do |t|
+    t.integer  "coach_id",           limit: 4,     null: false
+    t.string   "name",               limit: 255,   null: false
+    t.string   "suitable",           limit: 255
+    t.text     "content",            limit: 65535
+    t.float    "min_price",          limit: 24
+    t.float    "max_price",          limit: 24
+    t.string   "attendance",         limit: 255
+    t.string   "ps",                 limit: 255
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "photo_file_name",    limit: 255
+    t.string   "photo_content_type", limit: 255
+    t.integer  "photo_file_size",    limit: 4
+    t.datetime "photo_updated_at"
+  end
+
+  add_index "lessons", ["coach_id"], name: "index_lessons_on_coach_id", using: :btree
 
   create_table "skills", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
