@@ -12,7 +12,8 @@ class Users::CoachesController < ApplicationController
   end
 
   def create
-    @coach = current_user.create_coach(coach_params)
+    @coach = Coach.new(coach_params)
+    @coach.user = current_user
     if @coach.save
       flash[:notice] = "在這邊可以編輯教練資料。"
       redirect_to edit_users_coach_path

@@ -1,4 +1,5 @@
 class Coach < ActiveRecord::Base
+  validates_presence_of :coach_name, :contact_phone
   validates_format_of :contact_email, :with => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
   validates_inclusion_of :status, :in => ["draft", "public", "delete"]
   has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/coach/default.png"
