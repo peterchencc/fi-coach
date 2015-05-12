@@ -1,5 +1,6 @@
 class Coach < ActiveRecord::Base
-
+  validates_format_of :contact_email, :with => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
+  validates_inclusion_of :status, :in => ["draft", "public", "delete"]
   has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/coach/default.png"
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
   validates_uniqueness_of :user_id
@@ -15,9 +16,9 @@ class Coach < ActiveRecord::Base
   has_many :sports, :through => :coach_sportships
 
   has_many :experiences
-  accepts_nested_attributes_for :experiences, allow_destroy: true
+  accepts_nested_attributes_for :experiences, allow_destroy: true, :reject_if => :all_blank
   has_many :certificates
-  accepts_nested_attributes_for :certificates, allow_destroy: true
+  accepts_nested_attributes_for :certificates, allow_destroy: true, :reject_if => :all_blank
 
   has_many :lessons
 
