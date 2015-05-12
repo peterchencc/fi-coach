@@ -30,7 +30,7 @@
     <div class="form-group">
       <%= f.label :coach_name, "教練姓名", :class => "col-sm-2" %>
       <div class="col-sm-5 col-md-4">
-        <%= f.text_field :coach_name, :class => "form-control" %>
+        <%= f.text_field :coach_name, :class => "form-control", :required => true %>
       </div>
     </div>
     <div class="form-group">
@@ -42,13 +42,13 @@
     <div class="form-group">
       <%= f.label :contact_email, "E-mail", :class => "col-sm-2" %>
       <div class="col-sm-7 col-md-6">
-        <%= f.text_field :contact_email, :class => "form-control" %>
+        <%= f.text_field :contact_email, :class => "form-control", :required => true %>
       </div>
     </div>
     <div class="form-group">
       <%= f.label :contact_phone, "聯絡電話", :class => "col-sm-2" %>
       <div class="col-sm-6 col-md-5">
-        <%= f.text_field :contact_phone, :class => "form-control" %>
+        <%= f.text_field :contact_phone, :class => "form-control", :required => true %>
       </div>
     </div>
     <div class="form-group">
