@@ -18,11 +18,14 @@
       <%= render 'layouts/navigation' %>
     <% end %>
   </header>
-  <main>
+  <main style="min-height:600px;">
     <%= render 'layouts/alert' %>
     <%= yield %>
   </main>
   <footer>
+    <div class="text-center">
+      <p>© 2015 FiCoach</p>
+    </div>
   </footer>
 
   <%if Rails.env.production? %>

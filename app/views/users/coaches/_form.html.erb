@@ -1,5 +1,5 @@
 <p></p>
-<div class="col-md-10 col-md-offset-1">
+<div class="col-md-10 col-md-offset-1" style="padding: 9px 14px;background-color: #f7f7f9;border: 1px solid #e1e1e8;border-radius: 4px;">
 <% if @coach.errors.any? %>
   <ul>
     <% @coach.errors.full_messages.each do |msg| %>
@@ -26,10 +26,10 @@
     </div>
   </div>
   <!-- <div class="clearfix"></div> -->
-  <div class="col-sm-8">
+  <div class="col-xs-12 col-sm-8">
     <div class="form-group">
       <%= f.label :coach_name, "教練姓名", :class => "col-sm-2" %>
-      <div class="col-sm-3">
+      <div class="col-sm-5 col-md-4">
         <%= f.text_field :coach_name, :class => "form-control" %>
       </div>
     </div>
@@ -41,13 +41,13 @@
     </div>
     <div class="form-group">
       <%= f.label :contact_email, "E-mail", :class => "col-sm-2" %>
-      <div class="col-sm-5">
+      <div class="col-sm-7 col-md-6">
         <%= f.text_field :contact_email, :class => "form-control" %>
       </div>
     </div>
     <div class="form-group">
       <%= f.label :contact_phone, "聯絡電話", :class => "col-sm-2" %>
-      <div class="col-sm-5">
+      <div class="col-sm-6 col-md-5">
         <%= f.text_field :contact_phone, :class => "form-control" %>
       </div>
     </div>
@@ -59,17 +59,7 @@
       </div>
     </div>
   </div>
-  <div class="clearfix"></div>
 
-  <div class="col-sm-12">
-    <div class="form-group">
-      <%= f.label :skill_list, "專長", :class => "col-sm-2" %>
-      <div class="col-sm-10">
-        <%= f.text_field :skill_list, :placeholder => "tag1, tag2", :class=> "form-control", :id => "skill-list" %>
-        <p class="help-block">例：阻力訓練、體適能項目、顧膝蓋訓練</p>
-      </div>
-    </div>
-  </div>
   <div class="clearfix"></div>
   <div class="col-sm-6">
     <div class="form-group">
@@ -111,8 +101,19 @@
       </div>
     </div>
   </div>
-
   <div class="clearfix"></div>
+
+  <div class="col-sm-12">
+    <div class="form-group">
+      <%= f.label :skill_list, "專長", :class => "col-sm-2" %>
+      <div class="col-sm-10">
+        <%= f.text_field :skill_list, :placeholder => "tag1, tag2", :class=> "form-control", :id => "skill-list" %>
+        <p class="help-block">例：阻力訓練、體適能項目、顧膝蓋訓練</p>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+
   <div class="col-sm-12">
     <div class="form-group">
       <%= f.label :description, "簡介", :class => "col-sm-2" %>
@@ -141,10 +142,12 @@
       <%= f.submit "儲存教練資料", :class => "btn btn-primary" %>
     </div>
   </div>
+  <div class="clearfix"></div>
 
 <% end %>
 
-
+</div>
+<p></p>
 <script>
 
   $("#multiple-sport-select").select2();
@@ -174,4 +177,3 @@ $(function() {
   });
 });
 </script>
-</div>

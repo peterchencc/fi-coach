@@ -4,8 +4,8 @@ class Users::LessonsController < ApplicationController
   def index
 
     @lesson = Lesson.new
-    @coach = current_user.coach
-    @lessons = @coach.lessons.all.order("created_at DESC")
+
+    @lessons = current_user.coach.lessons.all.order("created_at DESC")
   end
 
   def create
@@ -17,12 +17,20 @@ class Users::LessonsController < ApplicationController
         format.html { redirect_to users_coach_lessons_path }
         # format.js
       else
+        @coach = current_user.coach
+        @lessons = @coach.lessons.all.order("created_at DESC")
         format.html { render :action => "index" }
         # format.js
       end
     end
   end
 
+  def destroy
+    @coach = current_user.coach
+    @lesson = @coach.lessons.find(params[:id])
+
+    @lesson.destroy
+  end
 
   private
 
