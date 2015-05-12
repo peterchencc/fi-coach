@@ -1,6 +1,25 @@
-json.url v1_coach_url(@i)
-json.coach_id "#{@i}"
-json.name "NO. #{@i} peter chen "
-json.info "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis eaque nemo aut doloremque, similique recusandae. Eius animi, modi optio, magni veniam id ea enim dolore facilis dolores, porro quisquam odio."
-json.photo "http://robohash.org/sitsequiquia.png"
+json.url v1_coach_url(c)
+json.coach_id c.id
+json.coach_name c.coach_name
+json.description c.description
+json.teaching_frame c.teaching_frame
+json.contact_email c.contact_email
+json.contact_phone c.contact_phone
+json.status c.status
+json.sex c.sex
+json.created_at c.created_at
+json.updated_at c.updated_at
 json.rating "4"
+json.sports c.sports
+json.experiences c.experiences
+json.certificates c.certificates
+json.skills c.skills
+json.image_original_url asset_url(c.photo.url)
+json.image_medium_url asset_url(c.photo.url(:medium))
+json.image_thumb_url asset_url(c.photo.url(:thumb))
+json.image_file_name c.photo_file_name
+json.image_content_type c.photo_content_type
+json.image_file_size c.photo_file_size
+json.image_updated_at c.photo_updated_at
+json.user_id c.user_id
+json.lessons c.lessons

@@ -1,3 +1,3 @@
-json.data 5.times do |i|
-  json.partial! "show", :locals => { :@i => i+1 }
+json.data do
+  json.partial! "show", collection: @coaches, :as => :c
 end

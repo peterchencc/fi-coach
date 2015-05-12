@@ -1,7 +1,7 @@
 class ApiV1::CoachesController < ApiController
 
   def index
-    # @coaches = Coach.all
+    @coaches = Coach.all.order("created_at DESC")
   end
 
   def show
