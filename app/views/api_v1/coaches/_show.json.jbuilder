@@ -1,4 +1,5 @@
 json.url v1_coach_url(c)
+json.user_id c.user_id
 json.coach_id c.id
 json.coach_name c.coach_name
 json.description c.description
@@ -10,10 +11,27 @@ json.sex c.sex
 json.created_at c.created_at
 json.updated_at c.updated_at
 json.rating "4"
-json.sports c.sports
-json.experiences c.experiences
-json.certificates c.certificates
-json.skills c.skills
+
+json.sports_all c.sports.all.map{|e| e[:name]}.join(" ")
+json.sports c.sports do |sport|
+  json.name sport.name
+end
+
+json.experiences_all c.experiences.all.map{|e| e[:name]}.join(" ")
+json.experiences c.experiences do |experience|
+  json.name experience.name
+end
+
+json.certificates_all c.certificates.all.map{|e| e[:name]}.join(" ")
+json.certificates c.certificates do |certificate|
+  json.name certificate.name
+end
+
+json.skills_all c.skills.all.map{|e| e[:name]}.join(" ")
+json.skills c.skills do |skill|
+  json.name skill.name
+end
+
 json.image_original_url asset_url(c.photo.url)
 json.image_medium_url asset_url(c.photo.url(:medium))
 json.image_thumb_url asset_url(c.photo.url(:thumb))
@@ -21,5 +39,23 @@ json.image_file_name c.photo_file_name
 json.image_content_type c.photo_content_type
 json.image_file_size c.photo_file_size
 json.image_updated_at c.photo_updated_at
-json.user_id c.user_id
-json.lessons c.lessons
+
+json.lessons c.lessons do |lesson|
+  json.name lesson.name
+  json.content lesson.content
+  json.suitable lesson.suitable
+  json.min_price lesson.min_price
+  json.max_price lesson.max_price
+  json.attendance lesson.attendance
+  json.ps lesson.ps
+  json.image_original_url asset_url(lesson.photo.url)
+  json.image_medium_url asset_url(lesson.photo.url(:medium))
+  json.image_thumb_url asset_url(lesson.photo.url(:thumb))
+  json.image_file_name lesson.photo_file_name
+  json.image_content_type lesson.photo_content_type
+  json.image_file_size lesson.photo_file_size
+  json.image_updated_at lesson.photo_updated_at
+end
+
+
+

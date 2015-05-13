@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
+
+  before_action :authenticate_user!
+
   def show
-    @coach = Coach.new
+    if current_user.is_coach?
+      @coach = Coach.new
+    end
   end
 end

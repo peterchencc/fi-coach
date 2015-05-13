@@ -5,8 +5,7 @@ class ApiV1::CoachesController < ApiController
   end
 
   def show
-    @coach = params[:id]
-    render :partial => "api_v1/coaches/show.json"
+    @coach = Coach.find(params[:id])
   end
 
 end
