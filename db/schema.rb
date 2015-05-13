@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512095523) do
+ActiveRecord::Schema.define(version: 20150513092339) do
 
   create_table "certificates", force: :cascade do |t|
     t.integer  "coach_id",   limit: 4,   null: false
@@ -78,6 +78,20 @@ ActiveRecord::Schema.define(version: 20150512095523) do
 
   add_index "coaches", ["status"], name: "index_coaches_on_status", using: :btree
   add_index "coaches", ["user_id"], name: "index_coaches_on_user_id", unique: true, using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4,   null: false
+    t.integer  "coach_id",   limit: 4,   null: false
+    t.integer  "lesson_id",  limit: 4
+    t.string   "content",    limit: 255, null: false
+    t.integer  "rating",     limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "comments", ["coach_id"], name: "index_comments_on_coach_id", using: :btree
+  add_index "comments", ["rating"], name: "index_comments_on_rating", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "experiences", force: :cascade do |t|
     t.integer  "coach_id",   limit: 4,   null: false

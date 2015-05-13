@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   before_save :ensure_authentication_token
 
   has_one :coach
+  has_many :comments
 
   def is_coach?
     self.coach.nil?
