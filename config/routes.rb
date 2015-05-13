@@ -29,8 +29,8 @@ Rails.application.routes.draw do
     post "logout" => "auth#logout"
 
     resources :coaches, :only => [ :show, :index ] do
-      resources :lessons, :only => [ :show, :index ]
-      resources :comments, :only => [ :show, :index ]
+      resources :lessons, :only => [ :index ]
+      resources :comments, :only => [ :create ]
     end
   end
 

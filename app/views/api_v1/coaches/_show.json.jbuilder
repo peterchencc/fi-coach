@@ -57,5 +57,13 @@ json.lessons c.lessons do |lesson|
   json.image_updated_at lesson.photo_updated_at
 end
 
-
+json.comments c.comments do |comment|
+  json.comment_id comment.id
+  json.comment_content comment.content
+  json.comment_rating comment.rating
+  json.comment_content comment.content
+  json.user_id comment.user_id
+  json.user_image comment.user.display_avatar
+  json.updated_at comment.updated_at
+end
 
