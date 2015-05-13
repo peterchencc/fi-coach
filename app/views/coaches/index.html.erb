@@ -28,18 +28,22 @@
                 <p><%= coach.contact_phone %></p>
               </div>
             </div>
-            <div class="coachLesson">
-              <div class="lessontitle col-md-2">
-                <h3>課程資訊</h3>
+            <% coach.lessons.each do |lesson| %>
+              <div class="coachLesson" id="coachLesson-<%= lesson.id %>">
+                <div class="lessontitle col-md-2">
+                  <h3>課程資訊</h3>
+                  <%= image_tag lesson.photo, class: "img-responsive img-thumbnail", size: "150" %>
+                </div>
+                <div class="lesson col-md-10">
+                  <strong>課程名稱：</strong><p><%= lesson.name %></p>
+                  <strong>適合對象：</strong><p><%= lesson.attendance %></p>
+                  <strong>課程介紹：</strong><p><%= lesson.content %></p>
+                  <strong>價格區間：</strong><p><%= lesson.min_price %> ~ <%= lesson.max_price %> /hr</p>
+                  <strong>附註：</strong><p><%= lesson.ps %></p>
+                </div>
               </div>
-              <div class="lesson col-md-10">
-                <strong>課程名稱：</strong><p>個人化健康管理</p>
-                <strong>適合對象：</strong><p>不限年齡不限性別（特別適合23以上之上班族）</p>
-                <strong>課程介紹：</strong><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus est accusantium minima suscipit provident necessitatibus amet voluptas omnis obcaecati, quo id explicabo. Neque rem, vitae unde voluptates officia itaque, repudiandae, enim beatae temporibus blanditiis atque reiciendis, sed maxime dolor sapiente!</p>
-                <p>1500-2000/hr, 視授課人數</p>
-                <p>1~6</p>
-              </div>
-            </div>
+              <div class="clearfix"></div>
+            <% end %>
             <div class="clearfix"></div>
             <div class="coachComment">
               <div class="commenttitle col-md-2">
