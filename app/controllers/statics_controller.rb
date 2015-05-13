@@ -1,4 +1,5 @@
 class StaticsController < ApplicationController
+  layout "static"
   def index
   end
   def subscribe

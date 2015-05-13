@@ -8,16 +8,14 @@
   <meta property="og:description" content="找教練 是為了提升運動效率,學習新技能. 找教練App 為您量身打造訓練課程 運動不再怕受傷 幫你找到合適的運動教練" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= favicon_link_tag 'favicon.ico' %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'static', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'static', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <header>
-    <%= render 'layouts/navigation' %>
   </header>
   <main style="min-height:600px;">
-    <%= render 'layouts/alert' %>
     <%= yield %>
   </main>
   <footer>
