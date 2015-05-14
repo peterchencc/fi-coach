@@ -4,9 +4,14 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'statics#index'
+
+
+  #root 'statics#index'
+  get 'index' => 'statics#index'
   get 'subscribe' => 'statics#subscribe'
   get 'thankyou' => 'statics#thankyou'
+
+  root 'coaches#landing'
 
   resource :users, :only => :show
   namespace :users do

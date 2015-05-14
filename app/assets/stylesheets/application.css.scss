@@ -2,3 +2,85 @@
 @import "bootstrap";
 @import "select2";
 @import "select2-bootstrap";
+body {
+  padding-top: 65px;
+}
+main{
+  min-height: 600px;
+}
+/* nav start */
+.top-header{
+  top: 0;
+  border-width: 0 0 1px;
+  line-height: 55px;
+  position: fixed;
+  width: 100%;
+  /*background-color: #365a7b;*/
+  background-color: #1575B5;
+  height: 55px;
+  z-index: 10;
+  transition: background-color .3s,height .3s;
+}
+.top-header .navbar{
+  margin-bottom: 0px;
+}
+.top-nav{
+  padding-left: 0;
+  list-style: none;
+}
+.top-nav li {
+  font-size: 15px;
+  padding: 0px 15px;
+}
+.top-header .navbar-collapse .top-nav {
+  color: #fff;
+}
+.top-header .navbar-toggle .icon-bar {
+  height: 4px;
+  background-color: #fff;
+}
+.top-header .navbar-collapse .top-nav a:hover {
+  text-decoration: underline;
+}
+.top-header .navbar-collapse  .dropdown-menu li a{
+  color: #000;
+}
+.top-header .navbar-collapse .top-nav a{
+  color: #fff;
+}
+.top-header .in .top-nav{
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+.top-header .in .top-nav a{
+  color: #000;
+}
+/* nav end */
+
+/* index-banner start */
+.index-banner{
+  /*background-color: #1575B5;*/
+
+}
+.jumbotron{
+
+}
+/*.banner-back{
+position:relative;
+z-index: 1;
+    background: image-url("running_bridge.png") no-repeat center center;
+  background-size:cover;
+  min-height: 700px;
+        -webkit-filter: blur(5px);
+       -moz-filter: blur(5px);
+        -ms-filter: blur(5px);
+            filter: blur(5px);
+}*/
+
+
+/* index-banner end */
+
+
+
