@@ -1,4 +1,5 @@
 json.url v1_coach_url(c)
+json.post_comment_url v1_coach_url(c)+"/comments"
 json.user_id c.user_id
 json.coach_id c.id
 json.coach_name c.coach_name
