@@ -20,49 +20,102 @@
       <div class="coach-list col-md-12">
         <div class="coachCenter">
           <% @coaches.each do |coach| %>
-            <div class="coachItem">
-              <div class="coachItemimg ">
-                <a href="<%= coach_path(coach) %>">
-                  <%= image_tag coach.photo, class: "img-responsive img-thumbnail", size: "150" %>
-                  <strong><%= coach.coach_name %></strong>
-                </a>
-              </div>
-              <div class="coachItemContent">
-                <p><%= coach.description %></p>
-                <p><%= coach.teaching_frame %></p>
-                <p><%= coach.contact_email %></p>
-                <p><%= coach.contact_phone %></p>
-              </div>
-            </div>
-            <% coach.lessons.each do |lesson| %>
-              <div class="coachLesson" id="coachLesson-<%= lesson.id %>">
-                <div class="lessontitle col-md-2">
-                  <h3>課程資訊</h3>
-                  <%= image_tag lesson.photo, class: "img-responsive img-thumbnail", size: "150" %>
-                </div>
-                <div class="lesson col-md-10">
-                  <strong>課程名稱：</strong><p><%= lesson.name %></p>
-                  <strong>適合對象：</strong><p><%= lesson.attendance %></p>
-                  <strong>課程介紹：</strong><p><%= lesson.content %></p>
-                  <strong>價格區間：</strong><p><%= lesson.min_price %> ~ <%= lesson.max_price %> /hr</p>
-                  <strong>附註：</strong><p><%= lesson.ps %></p>
-                </div>
-              </div>
-              <div class="clearfix"></div>
-            <% end %>
-            <div class="clearfix"></div>
 
-            <div class="coachComment">
-              <div class="commenttitle col-md-2">
-                <h3>評價</h3>
+          <div class="coachItem">
+              <div class="coachfile col-sm-12">
+                <div class="coachItemimg col-sm-2">
+                  <a href="<%= coach_path(coach) %>">
+                    <%= image_tag coach.photo, class: "img-responsive img-thumbnail", size: "150" %>
+                  </a>
+                </div>
+
+                <div class="coachItemContent col-sm-3">
+                  <a href="<%= coach_path(coach) %>">
+                    <h4><strong><%= coach.coach_name %></strong></h4>
+                  </a>
+                  <p>性別：<%= coach.sex %></p>
+                  <p>聯絡email：<%= coach.contact_email %></p>
+                  <p>聯絡電話：<%= coach.contact_phone %></p>
+                  <p>
+                  <span>評價</span>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  </p>
+                  <% unless coach.lessons.empty? %>
+                  <p id="lesson-btn-<%= coach.id %>" class="btn btn-primary">看更多課程</p>
+                  <% end %>
+                </div>
+                <div class="coachItemContent col-sm-7">
+                  <p><strong>授課地區：</strong>
+                    <% coach.cities.each do |city| %>
+                      <%= link_to city.name %>
+                    <% end %>
+                  </p>
+                  <p><strong>運動項目：</strong>
+                    <% coach.sports.each do |sport| %>
+                      <%= link_to sport.name %>
+                    <% end %>
+                  </p>
+                  <p><strong>專長：</strong>
+                    <% coach.skills.each do |skill| %>
+                      <%= skill.name %>
+                    <% end %>
+                  </p>
+                  <p><strong>簡介：</strong></p>
+                  <p><%= coach.description %></p>
+                </div>
               </div>
-              <div class="commentlist col-md-10">
-                <% coach.comments.each do |comment| %>
-                <strong><%= user_avatar(comment.user) %><%= comment.user.display_name %></strong><p><%= comment.content %></p>
+
+              <div class="coachLesson col-sm-12" id="coachLesson-<%= coach.id %>">
+                <% unless coach.lessons.empty? %>
+                <div class="col-sm-12">
+                  <% coach.lessons.each do |lesson| %>
+                    <div class="coachLessonItem" id="coachLessonItem-<%= lesson.id %>">
+                      <div class="lessonimg col-sm-3 col-sm-offset-1 text-center">
+                        <div class="col-xs-6 col-sm-8 col-md-10">
+                        <a href="<%= coach_path(coach) %>">
+                          <%= image_tag lesson.photo, class: "img-responsive img-thumbnail", size: "" %>
+                        </a>
+                        </div>
+                        <div class="clearfix"></div>
+                      </div>
+                      <div class="lessontitle col-sm-4">
+                        <a href="<%= coach_path(coach) %>">
+                          <h4><strong><%= lesson.name %></strong></h4>
+                        </a>
+                        <p><%= truncate lesson.content, length: 50 %></p>
+                      </div>
+                      <div class="lessoncontent col-sm-4">
+                        <p><strong>適合對象：</strong><%= lesson.suitable %></p>
+                        <p><strong>開班人數：</strong><%= lesson.attendance %></p>
+                        <p><strong>價格區間：</strong><%= lesson.min_price.to_i %> ~ <%= lesson.max_price.to_i %> NTD/hr</p>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div>
+
+                  <% end %>
+                </div>
                 <% end %>
               </div>
-            </div>
+              <div class="clearfix"></div>
+              <script>
+                $( document ).ready(function() {
+                  var coachLesson = $("#coachLesson-<%= coach.id %>")
+                    coachLesson.hide();
+                  $("#lesson-btn-<%= coach.id %>").click(function(){
+                    coachLesson.slideToggle();
+                  });
+                });
+              </script>
+              <p></p>
+              <div class="col-sm-12 coach-comment text-right">
+                <p>有 <%= coach.comments.count %> 個人都評論了這位教練...   <a class="btn btn-primary" href="<%= coach_path(coach) %>">看更多...</a></p>
+              </div>
             <div class="clearfix"></div>
+          </div>
           <% end  %>
 
         </div>
