@@ -3,6 +3,16 @@
 @import "select2";
 @import "select2-bootstrap";
 @import "rating";
+@media (max-width: 767px) {
+    .text-left-not-xs, .text-center-not-xs, .text-right-not-xs, .text-justify-not-xs {
+        text-align: inherit;
+    }
+    .text-left-xs {
+        text-align: left;
+    }
+}
+
+
 body {
   padding-top: 65px;
 }
@@ -99,11 +109,11 @@ z-index: 1;
   background-color: #E7E6E6;
 }
 .coachItemimg {
-  padding:20px 20px;
+  padding:20px 10px;
   background-color: #E7E6E6;
 }
 .coachItemContent{
-  padding:20px 20px;
+  padding:20px 10px;
 }
 .coachLesson{
   background-color: #F7F7F7;
@@ -125,9 +135,21 @@ z-index: 1;
 /* coaches end */
 
 /* coach start */
+.coachItem .coachimage{
+  margin-top: 20px;
+}
+.coachItem .coachcontent ul{
+  list-style-type: none;
+
+}
 .commentlist .media .media-heading{
   padding-left: 0px;
 }
+.coachItemLesson{
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
 
 /* coach end */
 

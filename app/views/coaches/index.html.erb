@@ -31,11 +31,11 @@
 
                 <div class="coachItemContent col-sm-3">
                   <a href="<%= coach_path(coach) %>">
-                    <h4><strong><%= coach.coach_name %></strong></h4>
+                    <h3><strong><%= coach.coach_name %></strong></h3>
                   </a>
-                  <p>性別：<%= coach.sex %></p>
-                  <p>聯絡email：<%= coach.contact_email %></p>
-                  <p>聯絡電話：<%= coach.contact_phone %></p>
+                  <p><strong>性別：</strong><%= coach.sex %></p>
+                  <p><strong>E-mail：</strong><%= coach.contact_email %></p>
+                  <p><strong>聯絡電話：</strong><%= coach.contact_phone %></p>
                   <p>
                   <span>評價</span>
                   <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
@@ -49,14 +49,14 @@
                   <% end %>
                 </div>
                 <div class="coachItemContent col-sm-7">
-                  <p><strong>授課地區：</strong>
-                    <% coach.cities.each do |city| %>
-                      <%= link_to city.name %>
-                    <% end %>
-                  </p>
                   <p><strong>運動項目：</strong>
                     <% coach.sports.each do |sport| %>
-                      <%= link_to sport.name %>
+                      <%= link_to sport.name, "", :class => "btn btn-info" %>
+                    <% end %>
+                  </p>
+                  <p><strong>授課地區：</strong>
+                    <% coach.cities.each do |city| %>
+                      <%= link_to city.name, "", :class => "btn bg-warning" %>
                     <% end %>
                   </p>
                   <p><strong>專長：</strong>
