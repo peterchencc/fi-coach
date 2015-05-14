@@ -34,8 +34,22 @@
 
             <div class="clearfix"></div>
 
-            <div id="comment-form">
-              <%= form_for [coach, @comment] do |f| %>
+
+
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="coachComment col-sm-10 col-sm-offset-1">
+              <div class="commenttitle col-sm-4">
+                <!-- <h3>評價</h3> -->
+
+              </div>
+
+
+              <div class="commentlist col-sm-8">
+
+              <div class="media" id="comment-form">
+                <%= form_for [coach, @comment], :remote => true  do |f| %>
 
                 <% if @comment.errors.any? %>
                   <ul>
@@ -44,57 +58,41 @@
                     <% end %>
                   </ul>
                 <% end %>
+                <div class="media-left">
+                  <% if current_user %>
+                  <%= image_tag(current_user.display_avatar, :class => "media-object", :width => "72", :alt => "user avatar") %>
+                  <% else %>
+                  <%= image_tag("http://fakeimg.pl/40x40/", :class => "media-object", :width => "72", :alt => "user avatar") %>
+                  <% end %>
+                </div>
+                <div class="media-body">
+                  <%= f.text_area :content, :rows => 2, :cols => "30", :class => "form-control", :required => true %>
+                  <div class="">
 
-                <div class="col-sm-8 col-sm-offset-1">
-                  <div class="form-group">
-                    <div class="col-xs-4">
-                      <% if current_user %>
-                      <%= image_tag(current_user.display_avatar, :class => "img-thumbnail", :width => "40", :alt => "user avatar") %>
-                      <% else %>
-                      <%= image_tag("http://fakeimg.pl/40x40/", :class => "img-thumbnail", :width => "40", :alt => "user avatar") %>
-
+                    <div class="container-rating">
+                      幫教練評個分吧！
+                      <% (1..5).each do |i| %>
+                      <input type="radio" name="comment[rating]" class="rating" value="<%= i %>" required/>
                       <% end %>
                     </div>
-                    <div class="col-xs-8">
-                      <%= f.text_area :content, :rows => 2, :class => "form-control" %>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2">
-                  <div class="form-group">
+                    <p></p>
                     <%= f.submit "Reply...", :class => "btn btn-primary" %>
                   </div>
                 </div>
-              <% end %>
-            </div>
-            <div class="clearfix"></div>
-
-            <div class="coachComment">
-              <div class="commenttitle col-md-2">
-                <h3>評價</h3>
-              </div>
-              <div class="commentlist col-md-10">
-                <% coach.comments.each do |comment| %>
-                <div class="media" id="comment-<%= comment.id %>">
-                  <div class="media-left">
-                      <% if comment.user %>
-                        <%= image_tag comment.user.display_avatar, :class => "media-object", :width => "64", :alt => "user avatar" %>
-                      <% end %>
-                  </div>
-                  <div class="media-body">
-                    <h4 class="media-heading"><%= comment.user.display_name %></h4>
-                    <%= simple_format comment.content %>
-                    <p class="text-right">
-                      <%= comment.created_at.to_s(:short) %>
-                      <% if comment.can_delete_by?(current_user) %>
-                        <%= link_to "刪除", coach_comment_path(coach, comment), :method => :delete, :remote => true %>
-                      <% end %>
-                    </p>
-                  </div>
-                </div>
                 <% end %>
+              </div>
+              <div id="comments"></div>
+              <% coach.comments.each do |comment| %>
+                <% next if comment.new_record? %>
+                <%= render :partial => "comments/comment", :locals => { :comment => comment, :coach => coach } %>
+              <% end %>
               </div>
             </div>
             <div class="clearfix"></div>
   </div>
 </div>
+<script>
+  $('.container-rating').rating();
+
+
+</script>

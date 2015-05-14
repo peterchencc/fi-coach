@@ -1,0 +1,7 @@
+<% if @comment.valid? %>
+  $("#comment-form form").trigger("reset");
+  $('#comments').prepend("<%= j(render :partial => 'comment', :locals => { :comment => @comment, :coach => @coach } ) %>");
+
+<% else %>
+  alert("comment failed!");
+<% end %>

@@ -21,8 +21,8 @@ class Coach < ActiveRecord::Base
   has_many :certificates
   accepts_nested_attributes_for :certificates, allow_destroy: true, :reject_if => :all_blank
 
-  has_many :lessons
-  has_many :comments
+  has_many :lessons, ->{ order("created_at DESC") }
+  has_many :comments, ->{ order("created_at DESC") }
 
   def skill_list
     self.skills.map{ |t| t.name }.join(",")

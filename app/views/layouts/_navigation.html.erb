@@ -18,10 +18,12 @@
                 <li><a href="mailto:gobetween19@yahoo.com?subject=FAQ">聯絡我們</a></li>
               <% if current_user %>
                 <li class="dropdown">
-                  <a href="" class="dropdown-toggle" data-toggle="dropdown">
-                    <%= user_avatar(current_user) %> &nbsp;<%= current_user.display_name %><b class="caret"></b>
+                  <a href="" class="dropdown-toggle dropdown-toggle-img" data-toggle="dropdown">
+                    <%= user_avatar(current_user) %>
                   </a>
-
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                    <%= current_user.display_name %><b class="caret"></b>
+                  </a>
                   <ul class="dropdown-menu">
                     <li><%= link_to '設定', users_path %></li>
                     <li><%= link_to '登出', destroy_user_session_path, :method => :delete %></li>

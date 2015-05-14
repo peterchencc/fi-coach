@@ -2,6 +2,7 @@
 @import "bootstrap";
 @import "select2";
 @import "select2-bootstrap";
+@import "rating";
 body {
   padding-top: 65px;
 }
@@ -42,6 +43,7 @@ main{
 .top-header .navbar-collapse .top-nav a:hover {
   text-decoration: underline;
 }
+
 .top-header .navbar-collapse  .dropdown-menu li a{
   color: #000;
 }
@@ -122,4 +124,10 @@ z-index: 1;
 
 /* coaches end */
 
+/* coach start */
+.commentlist .media .media-heading{
+  padding-left: 0px;
+}
+
+/* coach end */
 
