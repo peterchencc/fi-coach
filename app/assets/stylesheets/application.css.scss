@@ -71,28 +71,93 @@ main{
 }
 /* nav end */
 
+/* index start */
+
+.input {
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  border: 1px solid #c4c4c4;
+  border-radius: 2px;
+  font-size: 16px;
+  margin: 0 -4.5px;
+}
+.input input{
+  height: 39px;
+  padding: 10px;
+}
+.input-price input{
+  width: 100px;
+}
+.select{
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 16px;
+  margin: 0 -4px;
+}
+
+.select select{
+  -webkit-appearance: none;
+  border: 1px solid #c4c4c4;
+  border-radius: 2px;
+  background-color: #fff;
+  color: #565a5c;
+  padding: 11px 25px 11px 11px;
+}
+
+.select:before {
+  content: '\25bc';
+  position: absolute;
+  pointer-events: none;
+  color: #82888a;
+  top: 0;
+  bottom: 1px;
+  padding-top: 0.7em;
+  line-height: 1;
+  right: 0;
+  width: 2em;
+  text-align: center;
+}
+.search-btn{
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  margin-left: -4px;
+}
+.search-btn .btn{
+  height: 40px;
+  border-radius: 0px;
+}
+
+/* index end */
+
 /* index-banner start */
 .index-banner{
-  /*background-color: #1575B5;*/
+  margin-top: -10px;
+  background: image-url("running_bridge.png") no-repeat center center;
+  background-size:cover;
 
 }
-.jumbotron{
-
+.index-banner .jumbotron{
+  background:rgba(0,0,0,0.6);
+  border-radius: 0px;
+  color: #fff;
+  margin-bottom: 0px;
+  padding: 90px 60px 60px 60px;
 }
-/*.banner-back{
-position:relative;
-z-index: 1;
+.banner-back{
+  position:relative;
+  z-index: 1;
     background: image-url("running_bridge.png") no-repeat center center;
   background-size:cover;
-  min-height: 700px;
-        -webkit-filter: blur(5px);
-       -moz-filter: blur(5px);
-        -ms-filter: blur(5px);
-            filter: blur(5px);
-}*/
+  /*min-height: 700px;*/
+}
 
 
 /* index-banner end */
+
+
 /* coaches start */
 
 .coachCenter{

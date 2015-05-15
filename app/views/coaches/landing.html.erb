@@ -6,13 +6,29 @@
             <h1>FiCoach 找教練</h1>
             <h2>找教練，好簡單。</p>
             <p>搜尋關鍵字，快速找教練</p>
-            <p>
-              <form action="" method="get">
-
-                 <input type="text" name="lname" /> <input type="submit" value="Submit" />
-
-              </form>
-            </p>
+            <div class="col-12">
+              <%= form_tag coaches_path, :method => 'get' do %>
+                <div class="input">
+                  <%= text_field_tag :q, params[:q], placeholder: '關鍵字...' %>
+                </div>
+                <div class="select select-large">
+                  <%= select_tag 'city', options_from_collection_for_select(City.all, 'name', 'name') %>
+                </div>
+                <div class="select select-large">
+                  <%= select_tag 'sports', options_from_collection_for_select(Sport.all, 'name', 'name') %>
+                </div>
+<!--                 <div class="input input-price">
+                  <%#= text_field_tag 'price', params[:price], placeholder: '價格...' %>
+                </div> -->
+                <div class="select select-large">
+                  <%= select_tag 'sex', options_for_select([['性別(不限)', 'all'],['男', 'm'], ['女', 'f']]) %>
+                </div>
+                <div class="search-btn">
+                  <%= submit_tag('搜尋' , :class => "btn btn-danger") %>
+                </div>
+              <% end %>
+            </div>
+            <p></p>
             <p>or</p>
             <p>
               <%= link_to "我要當教練！", users_path, class: "btn btn-primary" %>
