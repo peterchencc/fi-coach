@@ -15,6 +15,7 @@ json.rating "4"
 
 json.sports_all c.sports.all.map{|e| e[:name]}.join(" ")
 json.sports c.sports do |sport|
+  json.id sport.id
   json.name sport.name
 end
 
@@ -33,6 +34,13 @@ json.skills c.skills do |skill|
   json.name skill.name
 end
 
+json.city_first c.cities.first.name
+json.cities_all c.cities.all.map{|e| e[:name]}.join(" ")
+json.cities c.cities do |city|
+  json.name city.name
+end
+
+
 json.image_original_url asset_url(c.photo.url)
 json.image_medium_url asset_url(c.photo.url(:medium))
 json.image_thumb_url asset_url(c.photo.url(:thumb))
@@ -41,6 +49,8 @@ json.image_content_type c.photo_content_type
 json.image_file_size c.photo_file_size
 json.image_updated_at c.photo_updated_at
 
+
+json.lesson_first_min_price c.lessons.first.min_price
 json.lessons c.lessons do |lesson|
   json.name lesson.name
   json.content lesson.content

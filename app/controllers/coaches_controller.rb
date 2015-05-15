@@ -3,7 +3,7 @@ class CoachesController < ApplicationController
   before_action :set_coach, :only => :show
 
   def landing
-    @coach = Coach.new
+
   end
 
   def index

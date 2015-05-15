@@ -30,7 +30,7 @@ main{
   background-color: #1575B5;
   height: 55px;
   z-index: 10;
-  transition: background-color .3s,height .3s;
+
 }
 .top-header .navbar{
   margin-bottom: 0px;
@@ -84,12 +84,12 @@ main{
   border-radius: 0px;
   color: #fff;
   margin-bottom: 0px;
-  padding: 90px 60px 60px 60px;
+  padding: 110px 60px 90px 60px;
 }
 .banner-back{
   position:relative;
   z-index: 1;
-    background: image-url("running_bridge.png") no-repeat center center;
+  background: image-url("running_bridge.png") no-repeat center center;
   background-size:cover;
 }
 
@@ -161,14 +161,6 @@ main{
 
 .coachCenter{
   margin: 10px;
-}
-.coach-list{
-  /*background-color:#26A3E4;*/
-
-}
-
-.coachItem{
-
 }
 .coachfile{
   border: 1px solid rgba(0, 0, 0, 0.15);
