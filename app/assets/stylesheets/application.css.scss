@@ -73,6 +73,28 @@ main{
 
 /* index start */
 
+/* index-banner start */
+.index-banner{
+  margin-top: -10px;
+  background: image-url("running_bridge.png") no-repeat center center;
+  background-size:cover;
+}
+.index-banner .jumbotron{
+  background:rgba(0,0,0,0.6);
+  border-radius: 0px;
+  color: #fff;
+  margin-bottom: 0px;
+  padding: 90px 60px 60px 60px;
+}
+.banner-back{
+  position:relative;
+  z-index: 1;
+    background: image-url("running_bridge.png") no-repeat center center;
+  background-size:cover;
+}
+
+/* index-banner end */
+
 .input {
   position: relative;
   display: inline-block;
@@ -83,6 +105,7 @@ main{
   margin: 0 -4.5px;
 }
 .input input{
+  color:#000;
   height: 39px;
   padding: 10px;
 }
@@ -132,30 +155,6 @@ main{
 
 /* index end */
 
-/* index-banner start */
-.index-banner{
-  margin-top: -10px;
-  background: image-url("running_bridge.png") no-repeat center center;
-  background-size:cover;
-
-}
-.index-banner .jumbotron{
-  background:rgba(0,0,0,0.6);
-  border-radius: 0px;
-  color: #fff;
-  margin-bottom: 0px;
-  padding: 90px 60px 60px 60px;
-}
-.banner-back{
-  position:relative;
-  z-index: 1;
-    background: image-url("running_bridge.png") no-repeat center center;
-  background-size:cover;
-  /*min-height: 700px;*/
-}
-
-
-/* index-banner end */
 
 
 /* coaches start */
