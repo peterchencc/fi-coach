@@ -53,7 +53,7 @@ json.image_file_size c.photo_file_size
 json.image_updated_at c.photo_updated_at
 
 if c.lessons.first
-  json.lesson_first_min_price c.lessons.first.min_price.to_s
+  json.lesson_first_min_price c.lessons.first.min_price
 else
   json.lesson_first_min_price 0
 end
@@ -62,8 +62,8 @@ json.lessons c.lessons do |lesson|
   json.name lesson.name
   json.content lesson.content
   json.suitable lesson.suitable
-  json.min_price lesson.min_price.to_s
-  json.max_price lesson.max_price.to_s
+  json.min_price lesson.min_price
+  json.max_price lesson.max_price
   json.attendance lesson.attendance
   json.ps lesson.ps
   json.image_original_url asset_url(lesson.photo.url)
