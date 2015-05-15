@@ -10,8 +10,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        set_coach
-        # format.html { redirect_to coach_path(@coach) }
+        format.html { redirect_to coach_path(@coach) }
         format.js
       else
         format.html { render :template => "coaches/show" }

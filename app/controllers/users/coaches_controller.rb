@@ -49,15 +49,8 @@ class Users::CoachesController < ApplicationController
 
   def status
     @coach = current_user.coach
-    if @coach.status == 'draft'
-      @coach.status = 'public'
-      @coach.save!
-    else
-      @coach.status = 'draft'
-      @coach.save!
-    end
-
-    render :action => "status"
+    @coach.status = params[:status]
+    @coach.save!
   end
 
 

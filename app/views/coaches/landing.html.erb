@@ -3,17 +3,18 @@
       <div class="row">
 
         <div class="jumbotron text-center">
-            <h1>FiCoach 找教練</h1>
-            <h2>找教練，好簡單。</p>
-            <p>搜尋關鍵字，快速找教練</p>
+            <h1>找教練  好簡單</h1>
+            <h2>想約就約    5分鐘專業教練配對</h2>
+            <p></p>
+
             <div class="col-12">
               <%= form_tag coaches_path, :method => 'get' do %>
                 <div class="input">
-                  <%= text_field_tag :q, params[:q], placeholder: '地區、城市...' %>
+                  <%= text_field_tag :city, params[:city], placeholder: '地區、城市...' %>
                 </div>
                 <div class="select select-large">
                   <select name="sports" id="sports">
-                    <option value="all">運動(不限)</option>
+                    <option value="">運動(不限)</option>
                     <% Sport.all.each do |sport| %>
                     <option value="<%= sport.name %>"><%= sport.name %></option>
                     <% end %>
@@ -33,13 +34,16 @@
             <p></p>
             <p>or</p>
             <p>
-              <%= link_to "我要當教練！", users_path, class: "btn btn-primary" %>
+              <%= link_to "我要當教練！", users_path, class: "btn btn-sm btn-primary" %>
             </p>
         </div>
       </div>
     </div>
   </div>
 
-
-
-
+<script>
+  $("#sport-list").select2({
+    tags: <%= raw(Sport.pluck(:name).to_json) %>,
+    tokenSeparators: [',', ' ']
+  });
+</script>

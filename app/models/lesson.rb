@@ -4,4 +4,5 @@ class Lesson < ActiveRecord::Base
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
   validates_presence_of :name
   belongs_to :coach
+
 end

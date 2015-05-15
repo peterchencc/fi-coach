@@ -11,9 +11,8 @@
                     <%= simple_format comment.content %>
                     <p class="text-right">
                         <span class="stars">
-                          <% x = comment.rating.to_i %>
-                          <% (1..x).each do |i| %>
-                          <a class="star fullStar"></a>
+                          <% comment.rating.to_i.times do %>
+                            <a class="star fullStar"></a>
                           <% end %>
                         </span>
                       <%= comment.created_at.to_s(:short) %>

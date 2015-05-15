@@ -5,7 +5,6 @@
       <p></p>
       <ul class="nav nav-tabs">
         <li role="presentation" class="<%= (params[:sports].blank?)? "active" : "" %>">
-
           <a href="<%= coaches_path %>">全部 <span class='badge'><%= @coaches_all %></span></a>
         </li>
         <% @sports.each do |sport| %>
@@ -38,17 +37,16 @@
                   <a href="<%= coach_path(coach) %>">
                     <h3><strong><%= coach.coach_name %></strong></h3>
                   </a>
-                  <p><strong>性別：</strong><%= coach.sex %></p>
+                  <div class="container-rating">
+                    <% coach.rating.to_i.times do %>
+                      <a class="star fullStar"></a>
+                    <% end %>
+                  </div>
+                  <div class="clearfix"></div>
+                  <p></p>
+                  <p><strong>性別：</strong><%= t(coach.sex, :scope => "gender") %></p>
                   <p><strong>E-mail：</strong><%= coach.contact_email %></p>
                   <p><strong>聯絡電話：</strong><%= coach.contact_phone %></p>
-                  <p>
-                  <span>評價</span>
-                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                  </p>
                   <% unless coach.lessons.empty? %>
                   <p id="lesson-btn-<%= coach.id %>" class="btn btn-primary hidden-xs">看更多課程</p>
                   <% end %>

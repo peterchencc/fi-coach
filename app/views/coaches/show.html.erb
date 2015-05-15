@@ -12,17 +12,24 @@
                     <h2><strong><%= coach.coach_name %></strong></h2>
                   </a>
                   </strong>
-                  <p><strong>性別：</strong><%= coach.sex %></p>
+                  <div class="">
+                    <% coach.rating.to_i.times do %>
+                      <a class="star fullStar"></a>
+                    <% end %>
+                  </div>
+                  <div class="clearfix"></div>
+                  <p></p>
+                  <p><strong>性別：</strong><%= t(coach.sex, :scope => "gender") %></p>
                   <p><strong>E-mail：</strong><%= coach.contact_email %></p>
                   <p><strong>聯絡電話：</strong><%= coach.contact_phone %></p>
                   <p><strong>運動項目：</strong>
                     <% coach.sports.each do |sport| %>
-                      <%= link_to sport.name, "", :class => "btn btn-info" %>
+                      <%= link_to sport.name, coaches_path( :sports => sport.name ), :class => "btn btn-info" %>
                     <% end %>
                   </p>
                   <p><strong>授課地區：</strong>
                     <% coach.cities.each do |city| %>
-                      <%= link_to city.name, "", :class => "btn bg-warning" %>
+                      <%= link_to city.name, coaches_path( :city => city.name ), :class => "btn bg-warning" %>
                     <% end %>
                   </p>
                 </div>
@@ -117,7 +124,6 @@
                     </div>
                     <p></p>
                     <%= f.submit "Reply...", :class => "btn btn-primary" %>
-
                   </div>
                 </div>
                 <% end %>

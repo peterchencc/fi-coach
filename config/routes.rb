@@ -23,6 +23,15 @@ Rails.application.routes.draw do
     end
   end
 
+  # Maybe better? need test
+  #
+  #resource :users, :only => :show do
+  #  resource :coach, :controller => "users/coaches" do
+  #    post 'status', :on => :member
+  #    resources :lessons, :controller => "users/lessons"
+  #  end
+  #end
+
   resources :coaches, :only => [ :index, :show ] do
     resources :lessons, :only => :index
     resources :comments
