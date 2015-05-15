@@ -84,7 +84,7 @@ main{
   border-radius: 0px;
   color: #fff;
   margin-bottom: 0px;
-  padding: 110px 60px 90px 60px;
+  padding: 140px 60px 100px 60px;
 }
 .banner-back{
   position:relative;
@@ -153,6 +153,117 @@ main{
   width: 100px;
   border-radius: 0px;
 }
+
+
+.sportsArea .page-header{
+  border-bottom: none;
+}
+
+.sportsArea .sportlist img{
+  display: inline;
+  position:relative;
+  z-index: -1;
+}
+.sportsArea .sportlist h2{
+  color:#fff;
+  display: inline;
+  position:absolute;
+  left:50%;
+  top:50%;
+  margin-top: -10px;
+  margin-left: -20px;
+}
+
+.sportstitle{
+  position:absolute;
+  width: 84%;
+  height: 100%;
+  margin-left: 13px;
+}
+.sportstitle:hover{
+  background:rgba(0,0,0,0.4);
+}
+.all-coach-btn{
+  margin:30px 0;
+}
+
+
+.swimming-lg{
+  color:#B37529;
+  font-weight: bold;
+  position:relative;
+  z-index: 1;
+  background: image-url("swim-large.png") no-repeat center center;
+  background-size:cover;
+  padding:80px 20%;
+}
+.swimming-lg h3{
+  color:#FFF;
+  background:rgba(0,0,0,0.4);
+  /*margin:10px 50px;*/
+  padding:30px 5px;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+
+.feature{
+  background-color:#324875;
+  color:#fff;
+}
+.services-box{
+  transition: background-color 0.3s ease;
+  position: relative;
+  top: 0;
+  padding:20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.feature .featureimg{
+  width:100px;
+  margin-left:35%;
+}
+.services-box h3{
+  font-weight: bold;
+  color:#CC9346;
+}
+.services-box h4{
+  line-height: 25px;
+}
+
+.coaches{
+  padding:20px 0;
+  color: #3E2816;
+}
+.coaches .title{
+  text-align: center;
+}
+.coaches .title img{
+  width: 50px;
+  display: inline;
+}
+.coaches .title h3{
+  display: inline;
+}
+.coaches .avatar{
+  text-align: center;
+  /*height: 270px;*/
+}
+.coaches .avatar img{
+  width: 200px;
+}
+.coaches .content{
+  margin: 10px 30px;
+}
+
+.coaches .content h4{
+  display: inline;
+}
+.coaches .content img{
+  height:30px;
+}
+
+
 
 /* index end */
 

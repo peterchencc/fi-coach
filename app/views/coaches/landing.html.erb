@@ -1,12 +1,10 @@
   <div class="index-banner">
     <div class="container-fluid">
       <div class="row">
-
         <div class="jumbotron text-center">
             <h1>找教練  好簡單</h1>
             <h2>想約就約    5分鐘專業教練配對</h2>
             <p></p>
-
             <div class="col-12">
               <%= form_tag coaches_path, :method => 'get' do %>
                 <div class="input">
@@ -41,9 +39,183 @@
     </div>
   </div>
 
-<script>
-  $("#sport-list").select2({
-    tags: <%= raw(Sport.pluck(:name).to_json) %>,
-    tokenSeparators: [',', ' ']
-  });
-</script>
+  <div class="sportsArea">
+    <div class="container">
+      <div class="row">
+        <div class="page-header text-center">
+          <h3>就從今天開始吧！</h3>
+        </div>
+
+        <div class="col-sm-8 col-sm-offset-2 sportlist">
+          <div class="col-xs-12">
+            <a href="<%= coaches_path( :sports => '網球' ) %>">
+            <div class="col-xs-6 col-sm-6 text-center">
+              <div class="sportstitle">
+              <h2><strong>網球</strong></h2>
+              </div>
+              <%= image_tag("tennis.png", class: "img-responsive") %>
+            </div>
+            </a>
+            <a href="<%= coaches_path( :sports => '跑步' ) %>">
+            <div class="col-xs-6 col-sm-6 text-center">
+              <div class="sportstitle">
+              <h2><strong>跑步</strong></h2>
+              </div>
+              <%= image_tag("running.png", class: "img-responsive") %>
+            </div>
+            </a>
+          </div>
+          <div class="col-xs-12">
+            <a href="<%= coaches_path( :sports => '瑜珈' ) %>">
+            <div class="col-xs-6 col-sm-6 text-center ">
+              <div class="sportstitle">
+                <h2><strong>瑜珈</strong></h2>
+              </div>
+              <%= image_tag("yoga.png" , class: "img-responsive") %>
+            </div>
+            </a>
+            <a href="<%= coaches_path( :sports => '其他' ) %>">
+            <div class="col-xs-6 col-sm-6 text-center">
+              <div class="sportstitle">
+              <h2><strong>其他</strong></h2>
+              </div>
+              <%= image_tag("others.png", class: "img-responsive") %>
+            </div>
+            </a>
+          </div>
+        </div>
+
+
+        <div class="col-xs-12 text-center">
+          <a href="<%= coaches_path %>" class="btn btn-lg btn-default all-coach-btn">
+            找尋所有運動項目的教練
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="swimming-lg text-center ">
+
+      <h3>這裡有很多專業教練</h3>
+    </div>
+  </div>
+</div>
+<div class="coaches">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="title">
+          <%= image_tag("landingpage/runner.png", :class=>"img-responsive", :size =>"50x50") %> <h3>體適能教練</h3>
+        </div>
+        <div class="avatar">
+          <%= image_tag("jenny_2.png", :style => "border-radius: 50%;") %>
+        </div>
+        <div class="content">
+          <div class="coach-name text-center">
+            <h4>Jenny</h4>
+            <%= image_tag("landingpage/5stars.png") %>
+          </div>
+          <p>證照:</p><p> NSCA - CPT 美國個人肌力與體能訓練教練 TSCA 台灣肌力與體能訓練協會</p>
+          <p>課程:</p><p> 登山體能與肌力鍛鍊 關節保養與活化 體重管理與體態調整</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="title">
+          <%= image_tag("landingpage/weighting.png", :class=>"img-responsive", :size =>"50x50") %> <h3>健身教練</h3>
+        </div>
+        <div class="avatar">
+          <%= image_tag("coach02.png", :style => "border-radius: 50%;") %>
+        </div>
+        <div class="content">
+          <div class="coach-name text-center">
+            <h4>謝君璞</h4>
+            <%= image_tag("landingpage/5stars.png") %>
+          </div>
+          <p>證照:</p><p> AASFP高級個人教練證 AFAA 重量訓練證 WorldGym認證私人教練TRX 懸吊訓練師 </p>
+          <p>課程:</p><p> 阻力訓練 力量訓練 專項轉換 體態雕塑 健康體適能</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="title">
+          <%= image_tag("landingpage/danceing.png", :class=>"img-responsive", :size =>"50x50") %> <h3>資深舞蹈教師</h3></div>
+        <div class="avatar">
+          <%= image_tag("Kore.png", :style => "border-radius: 50%;") %>
+        </div>
+        <div class="content">
+          <div class="coach-name text-center">
+            <h4>Kore</h4>
+            <%= image_tag("landingpage/5stars.png") %>
+          </div>
+          <p>證照:</p><p> STOTT PILATES MATWORK, LEVEL 1&2</p>
+          <p>課程:</p><p> 皮拉提斯 有氧舞蹈 瑜珈</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="feature">
+  <div class="container">
+    <div class="row">
+    <div class="page-header text-center">
+      <h3>功能特色</h3>
+    </div>
+      <div class="services-box col-sm-4 text-center">
+        <div class="featureimg">
+          <%= image_tag("fun01.png", class: "img-responsive") %>
+        </div>
+        <div class="featurecontent">
+        <h3>搜尋好簡單</h3>
+        <h4>不論在網站還是APP上,透過篩選,就能輕鬆找到教練</h4>
+        </div>
+      </div>
+      <div class="services-box col-sm-4 text-center">
+        <div class="featureimg">
+          <%= image_tag("fun02.png", class: "img-responsive") %>
+        </div>
+        <div class="featurecontent">
+          <h3>同學評價參考</h3>
+          <h4>同學分享上課心得及內容,透過評價找到最適合的課程及教練</h4>
+        </div>
+      </div>
+      <div class="services-box col-sm-4 text-center">
+        <div class="featureimg">
+          <%= image_tag("fun03.png", class: "img-responsive") %>
+        </div>
+        <div class="featurecontent">
+          <h3>APP 即刻預約</h3>
+          <h4>使用APP就能馬上得知上課時間資訊,一鍵call教練好方便</h4>
+        </div>
+      </div>
+      <div class="services-box col-sm-4 col-sm-offset-2 text-center">
+        <div class="featureimg">
+          <%= image_tag("fun04.png", class: "img-responsive") %>
+        </div>
+        <div class="featurecontent">
+          <h3>社群分享</h3>
+          <h4>社交網站整合,與志同道合的朋友們分享學習的收穫跟成長</h4>
+        </div>
+      </div>
+      <div class="services-box col-sm-4 text-center">
+        <div class="featureimg">
+          <%= image_tag("fun05.png", class: "img-responsive") %>
+        </div>
+        <div class="featurecontent">
+          <h3>教練個人化課表</h3>
+          <h4>教練課表規劃編輯好容易,提供同學多樣課程選擇</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
