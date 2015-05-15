@@ -96,10 +96,12 @@ z-index: 1;
 /* coaches start */
 
 .coachCenter{
-
+  margin: 10px;
+}
+.coach-list{
+  /*background-color:#26A3E4;*/
 
 }
-
 
 .coachItem{
 
@@ -114,6 +116,9 @@ z-index: 1;
 }
 .coachItemContent{
   padding:20px 10px;
+}
+.coachItemContent h3{
+  margin-top:0px;
 }
 .coachLesson{
   background-color: #F7F7F7;

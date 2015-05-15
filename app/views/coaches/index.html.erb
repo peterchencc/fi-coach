@@ -2,15 +2,20 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center">
-            <p>
-              <form action="" method="get">
+      <p></p>
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="<%= (params[:sports].blank?)? "active" : "" %>">
 
-                 <input type="text" name="lname" /> <input type="submit" value="Submit" />
-
-              </form>
-            </p>
-
-
+          <a href="<%= coaches_path %>">全部 <span class='badge'><%= @coaches_all %></span></a>
+        </li>
+        <% @sports.each do |sport| %>
+        <li role="presentation" class="<%= (params[:sports] == sport.name) ? "active" : "" %>">
+          <a href="<%= coaches_path( :sports => sport.name ) %>">
+            <%= sport.name %> <span class='badge'><%= sport.coaches.count %></span>
+          </a>
+        </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
@@ -45,18 +50,18 @@
                   <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                   </p>
                   <% unless coach.lessons.empty? %>
-                  <p id="lesson-btn-<%= coach.id %>" class="btn btn-primary">看更多課程</p>
+                  <p id="lesson-btn-<%= coach.id %>" class="btn btn-primary hidden-xs">看更多課程</p>
                   <% end %>
                 </div>
                 <div class="coachItemContent col-sm-7">
                   <p><strong>運動項目：</strong>
                     <% coach.sports.each do |sport| %>
-                      <%= link_to sport.name, "", :class => "btn btn-info" %>
+                      <%= link_to sport.name, coaches_path( :sports => sport.name ), :class => "btn btn-info" %>
                     <% end %>
                   </p>
                   <p><strong>授課地區：</strong>
                     <% coach.cities.each do |city| %>
-                      <%= link_to city.name, "", :class => "btn bg-warning" %>
+                      <%= link_to city.name, coaches_path( :city => city.name ), :class => "btn bg-warning" %>
                     <% end %>
                   </p>
                   <p><strong>專長：</strong>
