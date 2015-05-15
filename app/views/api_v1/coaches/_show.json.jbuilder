@@ -83,7 +83,7 @@ json.comments c.comments do |comment|
   json.user_id comment.user_id
   json.user_name comment.user.display_name
   json.user_image comment.user.display_avatar
-  json.updated_at_only_date comment.updated_at.strftime "%Y-%m-%d"
+  json.updated_at_only_date comment.updated_at.to_date
   json.updated_at comment.updated_at
 end
 
