@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
+
+  namespace :admin do
+    resources :coaches, :sports
+  end
+
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-
-
-  #root 'statics#index'
   get 'index' => 'statics#index'
   get 'subscribe' => 'statics#subscribe'
   get 'thankyou' => 'statics#thankyou'

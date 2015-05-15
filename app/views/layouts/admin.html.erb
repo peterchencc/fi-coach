@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FiCoach 找教練</title>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+
+    <div class="navbar">
+      <a class="navbar-brand" href="/">FiCoach</a>
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <%= link_to "教練清單", admin_coaches_path %>
+        </li>
+        <li>
+          <%= link_to "運動項目清單", admin_sports_path %>
+        </li>
+      </ul>
+    </div>
+
+<h1>FiCoach找教練管理後台</h1>
+  <%= render 'layouts/alert' %>
+  <%= yield %>
+  </div>
+</div>
+
+</body>
+</html>
