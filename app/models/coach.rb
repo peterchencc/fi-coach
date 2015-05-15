@@ -1,8 +1,12 @@
 class Coach < ActiveRecord::Base
+
   validates_presence_of :coach_name, :contact_phone
   validates_format_of :contact_email, :with => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
+
   validates_inclusion_of :status, :in => ["draft", "public", "delete"]
+
   has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/coach/default.png"
+
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
   validates_uniqueness_of :user_id
   belongs_to :user
@@ -35,6 +39,15 @@ class Coach < ActiveRecord::Base
     }
 
     self.skill_ids = skills.map{ |x| x.id }
+  end
+
+  def rating
+    r = self.comments.average(:rating)
+    if r
+      r.to_f.round
+    else
+      0
+    end
   end
 
 end

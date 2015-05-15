@@ -11,7 +11,7 @@ json.status c.status
 json.sex c.sex
 json.created_at c.created_at
 json.updated_at c.updated_at
-json.rating "4"
+json.rating c.rating
 
 json.sports_all c.sports.all.map{|e| e[:name]}.join(" ")
 json.sports c.sports do |sport|
@@ -34,7 +34,10 @@ json.skills c.skills do |skill|
   json.name skill.name
 end
 
-json.city_first c.cities.first.name
+if c.cities.first
+  json.city_first c.cities.first.name
+end
+
 json.cities_all c.cities.all.map{|e| e[:name]}.join(" ")
 json.cities c.cities do |city|
   json.name city.name
@@ -49,8 +52,12 @@ json.image_content_type c.photo_content_type
 json.image_file_size c.photo_file_size
 json.image_updated_at c.photo_updated_at
 
+if c.lessons.first
+  json.lesson_first_min_price c.lessons.first.min_price
+else
+  json.lesson_first_min_price 0
+end
 
-json.lesson_first_min_price c.lessons.first.min_price
 json.lessons c.lessons do |lesson|
   json.name lesson.name
   json.content lesson.content
