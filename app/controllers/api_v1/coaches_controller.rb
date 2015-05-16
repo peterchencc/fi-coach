@@ -11,7 +11,7 @@ class ApiV1::CoachesController < ApiController
       @coaches = Coach.all
     end
 
-    @coaches = @coaches.order("created_at DESC").includes(:sports, :certificates, :experiences, :lessons, :skills, :cities)
+    @coaches = @coaches.where( :status => 'public' ).order("created_at DESC").includes(:sports, :certificates, :experiences, :lessons, :skills, :cities)
   end
 
   def show

@@ -10,7 +10,7 @@
         <% @sports.each do |sport| %>
         <li role="presentation" class="<%= (params[:sports] == sport.name) ? "active" : "" %>">
           <a href="<%= coaches_path( :sports => sport.name ) %>">
-            <%= sport.name %> <% unless sport.coaches.count == 0 %><span class='badge'><%= sport.coaches.count %></span><% end %>
+            <%= sport.name %> <% unless sport.coaches.where(:status => 'public').count == 0 %><span class='badge'><%= sport.coaches.count %></span><% end %>
           </a>
         </li>
         <% end %>
@@ -45,7 +45,8 @@
                   <div class="clearfix"></div>
                   <p></p>
                   <p><strong>性別：</strong><%= t(coach.sex, :scope => "gender") %></p>
-                  <p><strong>E-mail：</strong><%= mail_to coach.contact_email %></p>
+                  <p><strong>e-mail</strong></p>
+                  <p><%= mail_to coach.contact_email %></p>
                   <p><strong>聯絡電話：</strong><%= coach.contact_phone %></p>
 
                 </div>

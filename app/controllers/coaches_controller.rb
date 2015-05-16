@@ -30,16 +30,16 @@ class CoachesController < ApplicationController
       end
      end
 
-    @coaches = @coaches.order("created_at DESC").includes(:sports, :certificates, :experiences, :lessons, :skills, :cities)
+    @coaches = @coaches.where( :status => 'public' ).order("created_at DESC").includes(:sports, :certificates, :experiences, :lessons, :skills, :cities)
 
 
 
-    @coaches_all = Coach.count
+    @coaches_all = Coach.where( :status => 'public' ).count
     @sports = Sport.all
   end
 
   def show
-    @coaches_all = Coach.count
+    @coaches_all = Coach.where( :status => 'public' ).count
     @sports = Sport.all
     @comment = Comment.new
   end

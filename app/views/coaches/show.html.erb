@@ -10,7 +10,7 @@
         <% @sports.each do |sport| %>
         <li role="presentation" class="">
           <a href="<%= coaches_path( :sports => sport.name ) %>">
-            <%= sport.name %> <% unless sport.coaches.count == 0 %><span class='badge'><%= sport.coaches.count %></span><% end %>
+            <%= sport.name %> <% unless sport.coaches.where( :status => 'public' ).count == 0 %><span class='badge'><%= sport.coaches.count %></span><% end %>
           </a>
         </li>
         <% end %>
