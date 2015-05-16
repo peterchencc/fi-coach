@@ -64,19 +64,19 @@
               <div class="clearfix"></div>
               <div class="coachcontent2 col-sm-10 col-sm-offset-1">
                 <div class="col-sm-6 col-sm-offset-1">
-                  <% if coach.description %>
-                    <p><strong>簡介：</strong></p>
+                  <% if coach.description.present? %>
+                    <p><strong>簡介</strong></p>
                     <p><%= simple_format coach.description %></p>
                   <% end %>
 
-                  <% if coach.teaching_frame %>
-                    <p><strong>教學理念：</strong></p>
+                  <% if coach.teaching_frame.present? %>
+                    <p><strong>教學理念</strong></p>
                     <p><%= simple_format coach.teaching_frame %></p>
                   <% end %>
                 </div>
                 <div class="col-sm-4">
                   <% if coach.skills.any? %>
-                    <p><strong>專長：</strong></p>
+                    <p><strong>專長</strong></p>
                     <p>
                       <ul>
                         <% coach.skills.each do |skill| %>
@@ -87,7 +87,7 @@
                   <% end %>
 
                   <% if coach.experiences.any? %>
-                  <p><strong>經歷：</strong></p>
+                  <p><strong>經歷</strong></p>
                   <p>
                     <ul>
                     <% coach.experiences.each do |experience| %>
@@ -98,7 +98,7 @@
                   <% end %>
 
                   <% if coach.certificates.any? %>
-                  <p><strong>證照/證書：</strong></p>
+                  <p><strong>證照/證書</strong></p>
                   <p>
                     <ul>
                     <% coach.certificates.each do |certificate| %>
