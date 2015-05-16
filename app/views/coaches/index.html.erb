@@ -71,7 +71,7 @@
                     <% end %>
                   </p>
                   <% end %>
-                  <p style=><%= truncate coach.description, length: 110 %></p>
+                  <p><%= truncate coach.description, length: 120 %></p>
                   <% unless coach.lessons.empty? %>
                   <p id="lesson-btn-<%= coach.id %>" class="btn btn-primary hidden-xs pull-right">看更多課程</p>
                   <% end %>
