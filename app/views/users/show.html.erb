@@ -22,7 +22,7 @@
             </div>
           <% else %>
             <h1>Hi , <%= current_user.display_name %></h1>
-              <p>如果您是教練請按下方按鈕，前往填寫教練資料。</p>
+              <p>如果您是教練請填寫完下方基本資料後，註冊前往填寫更詳細的教練履歷哦。</p>
               <%= form_for [:users, @coach], :url => users_coach_path, :html => {:class => 'form-horizontal'} do |f| %>
                 <div class="form-group">
                   <%= f.label :coach_name, "教練姓名", :class => "col-sm-2" %>
@@ -49,7 +49,20 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <%= f.submit '註冊填寫教練資料', :class => "btn btn-primary" %>
+                  <%= f.label :city_ids, "授課地區 (可多選)", :class => "col-sm-2"  %>
+                  <div class="col-sm-8">
+                    <%= f.select :city_ids, City.all.map{ |g| [g.name, g.id] }, {}, :multiple => true, :id => "multiple-city-select", :class=> "form-control" %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <%= f.label :sport_ids, "運動項目 (可多選)", :class => "col-sm-2"  %>
+                  <div class="col-sm-10">
+                    <%= f.select :sport_ids, Sport.all.map{ |g| [g.name, g.id] }, {}, :multiple => true, :id => "multiple-sport-select", :class=> "form-control" %>
+                    <p class="help-block">我們提供這些項目供你選擇，如有需要其他項目可來信通知。</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <%= f.submit '註冊填寫教練履歷', :class => "btn btn-primary" %>
                 </div>
               <% end %>
           <% end %>
@@ -58,4 +71,8 @@
     </div>
   </div>
 </div>
+<script>
+    $("#multiple-city-select").select2();
+    $("#multiple-sport-select").select2();
 
+</script>
