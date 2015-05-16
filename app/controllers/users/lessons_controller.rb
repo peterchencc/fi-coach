@@ -2,9 +2,7 @@ class Users::LessonsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-
     @lesson = Lesson.new
-
     @lessons = current_user.coach.lessons.all.order("created_at DESC")
   end
 

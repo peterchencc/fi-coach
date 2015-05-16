@@ -45,30 +45,36 @@
                   <div class="clearfix"></div>
                   <p></p>
                   <p><strong>性別：</strong><%= t(coach.sex, :scope => "gender") %></p>
-                  <p><strong>E-mail：</strong><%= coach.contact_email %></p>
+                  <p><strong>E-mail：</strong><%= mail_to coach.contact_email %></p>
                   <p><strong>聯絡電話：</strong><%= coach.contact_phone %></p>
-                  <% unless coach.lessons.empty? %>
-                  <p id="lesson-btn-<%= coach.id %>" class="btn btn-primary hidden-xs">看更多課程</p>
-                  <% end %>
+
                 </div>
                 <div class="coachItemContent col-sm-7">
+                  <% if coach.sports.any? %>
                   <p><strong>運動項目：</strong>
                     <% coach.sports.each do |sport| %>
                       <%= link_to sport.name, coaches_path( :sports => sport.name ), :class => "btn btn-info" %>
                     <% end %>
                   </p>
+                  <% end %>
+                  <% if coach.cities.any? %>
                   <p><strong>授課地區：</strong>
                     <% coach.cities.each do |city| %>
                       <%= link_to city.name, coaches_path( :city => city.name ), :class => "btn bg-warning" %>
                     <% end %>
                   </p>
+                  <% end %>
+                  <% if coach.skills.any? %>
                   <p><strong>專長：</strong>
                     <% coach.skills.each do |skill| %>
                       <%= skill.name %>
                     <% end %>
                   </p>
-                  <p><strong>簡介：</strong></p>
-                  <p><%= coach.description %></p>
+                  <% end %>
+                  <p style=><%= truncate coach.description, length: 110 %></p>
+                  <% unless coach.lessons.empty? %>
+                  <p id="lesson-btn-<%= coach.id %>" class="btn btn-primary hidden-xs pull-right">看更多課程</p>
+                  <% end %>
                 </div>
               </div>
 
@@ -92,9 +98,18 @@
                         <p><%= truncate lesson.content, length: 50 %></p>
                       </div>
                       <div class="lessoncontent col-sm-4">
-                        <p><strong>適合對象：</strong><%= lesson.suitable %></p>
-                        <p><strong>開班人數：</strong><%= lesson.attendance %></p>
-                        <p><strong>價格區間：</strong><%= lesson.min_price.to_i %> ~ <%= lesson.max_price.to_i %> NTD/hr</p>
+                        <% if lesson.suitable %>
+                        <p><strong>適合對象：</strong></p>
+                        <p><%= lesson.suitable %></p>
+                        <% end %>
+                        <% if lesson.attendance %>
+                        <p><strong>開班人數：</strong></p>
+                        <p><%= lesson.attendance %></p>
+                        <% end %>
+                        <% if lesson.min_price %>
+                        <p><strong>價格區間：</strong></p>
+                        <p><%= lesson.min_price.to_i %> ~ <%= lesson.max_price.to_i %> NTD/hr</p>
+                        <% end %>
                       </div>
                       <div class="clearfix"></div>
                     </div>
@@ -117,7 +132,9 @@
               </script>
               <p></p>
               <div class="col-sm-12 coach-comment text-right">
-                <p>有 <%= coach.comments.count %> 個人都評論了這位教練...   <a class="btn btn-primary" href="<%= coach_path(coach) %>">看更多...</a></p>
+                <a class="" href="<%= coach_path(coach) %>">
+                  <p>有 <%= coach.comments.count %> 個人都評論了這位教練</p>
+                </a>
               </div>
             <div class="clearfix"></div>
           </div>

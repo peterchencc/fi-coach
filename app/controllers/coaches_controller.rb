@@ -39,6 +39,8 @@ class CoachesController < ApplicationController
   end
 
   def show
+    @coaches_all = Coach.count
+    @sports = Sport.all
     @comment = Comment.new
   end
 
