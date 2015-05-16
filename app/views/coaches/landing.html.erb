@@ -116,13 +116,13 @@
         <div class="avatar">
           <%= image_tag("jenny_2.png", :style => "border-radius: 50%;") %>
         </div>
-        <div class="content">
-          <div class="coach-name text-center">
+        <div class="content text-center">
+          <div class="coach-name ">
             <h4>Jenny</h4>
             <%= image_tag("landingpage/5stars.png") %>
           </div>
-          <p>證照:</p><p> NSCA - CPT 美國個人肌力與體能訓練教練 TSCA 台灣肌力與體能訓練協會</p>
-          <p>課程:</p><p> 登山體能與肌力鍛鍊 關節保養與活化 體重管理與體態調整</p>
+          <p><strong>證照</strong></p><p> NSCA - CPT 美國個人肌力與體能訓練教練 TSCA 台灣肌力與體能訓練協會</p>
+          <p><strong>課程</strong></p><p> 登山體能與肌力鍛鍊 關節保養與活化 </p><p>體重管理與體態調整</p>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
@@ -132,13 +132,13 @@
         <div class="avatar">
           <%= image_tag("coach02.png", :style => "border-radius: 50%;") %>
         </div>
-        <div class="content">
-          <div class="coach-name text-center">
+        <div class="content text-center">
+          <div class="coach-name">
             <h4>謝君璞</h4>
             <%= image_tag("landingpage/5stars.png") %>
           </div>
-          <p>證照:</p><p> AASFP高級個人教練證 AFAA 重量訓練證 WorldGym認證私人教練TRX 懸吊訓練師 </p>
-          <p>課程:</p><p> 阻力訓練 力量訓練 專項轉換 體態雕塑 健康體適能</p>
+          <p><strong>證照</strong></p><p> AASFP高級個人教練證 AFAA 重量訓練證 WorldGym認證私人教練TRX 懸吊訓練師 </p>
+          <p><strong>課程</strong></p><p>阻力訓練 力量訓練 專項轉換</p><p> 體態雕塑 健康體適能</p>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
@@ -147,19 +147,29 @@
         <div class="avatar">
           <%= image_tag("Kore.png", :style => "border-radius: 50%;") %>
         </div>
-        <div class="content">
-          <div class="coach-name text-center">
+        <div class="content text-center">
+          <div class="coach-name">
             <h4>Kore</h4>
             <%= image_tag("landingpage/5stars.png") %>
           </div>
-          <p>證照:</p><p> STOTT PILATES MATWORK, LEVEL 1&2</p>
-          <p>課程:</p><p> 皮拉提斯 有氧舞蹈 瑜珈</p>
+          <p><strong>證照</strong></p><p> STOTT PILATES MATWORK, LEVEL 1&2</p>
+          <p><strong>課程</strong></p><p> 皮拉提斯 有氧舞蹈 瑜珈</p>
         </div>
       </div>
     </div>
   </div>
 </div>
-
+<div class="container">
+  <div class="row">
+    <div class="text-center joinus">
+      <a href="<%= users_path %>">
+        <button type="button" class="btn btn-default btn-lg">
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span> JOIN US
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
 <div class="feature">
   <div class="container">
     <div class="row">
