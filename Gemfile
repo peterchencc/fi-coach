@@ -36,7 +36,7 @@ gem 'capistrano-passenger', :group => :development
 
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
-
+gem "font-awesome-rails"
 gem "mysql2"
 
 gem 'devise'

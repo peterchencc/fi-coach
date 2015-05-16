@@ -214,7 +214,23 @@
     </div>
   </div>
 </div>
+<script>
 
+    $(function(){
+      $("#goTop").click(function(){
+        $("html,body").animate({scrollTop:0},900);
+        return false;
+      });
+      $("#gocoaches").click(function(){
+        $("html,body").animate({scrollTop:600},900);
+        return false;
+      });
+      $("#goFeature").click(function(){
+        $("html,body").animate({scrollTop:3200},900);
+        return false;
+      });
+    });
+</script>
 
 
 

@@ -16,6 +16,7 @@
             <ul class="navbar-nav navbar-right top-nav">
                 <li><%= link_to '教練清單', coaches_path %></li>
                 <li><a href="mailto:gobetween19@yahoo.com?subject=FAQ">聯絡我們</a></li>
+                <!-- <li><a href="#" id="goFeatrue">服務項目</a></li> -->
               <% if current_user %>
                 <li class="dropdown">
                   <a href="" class="dropdown-toggle dropdown-toggle-img" data-toggle="dropdown">
@@ -30,7 +31,7 @@
                   </ul>
                 </li>
               <% else %>
-                <li><%= link_to "Facebook", user_omniauth_authorize_path(:facebook) %></li>
+                <li><%#= link_to "Facebook", user_omniauth_authorize_path(:facebook) %></li>
                 <li><%= link_to '註冊', new_registration_path(:user) %></li>
                 <li><%= link_to '登入', new_session_path(:user) %></li>
               <% end %>
