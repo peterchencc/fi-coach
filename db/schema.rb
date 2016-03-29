@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20150515114707) do
     t.text     "teaching_frame",     limit: 65535
     t.string   "contact_email",      limit: 255
     t.string   "contact_phone",      limit: 255
-    t.boolean  "admin_check",        limit: 1,     default: false,   null: false
+    t.boolean  "admin_check",                      default: false,   null: false
     t.datetime "created_at",                                         null: false
     t.datetime "updated_at",                                         null: false
     t.string   "photo_file_name",    limit: 255
