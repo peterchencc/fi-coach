@@ -44,8 +44,10 @@ gem 'nested_form_fields'
 
 group :development do
   gem 'web-console', '~> 2.0'
+  gem 'capistrano'
   gem 'capistrano-rails'
-  gem 'capistrano-passenger'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv'
 end
 
 group :development, :test do
