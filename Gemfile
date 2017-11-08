@@ -42,6 +42,8 @@ gem "select2-rails"
 
 gem 'nested_form_fields'
 
+gem 'dotenv-rails'
+
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'capistrano'
